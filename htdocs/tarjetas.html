@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar tarjeta</title>
+</head>
+<body>
+    <h1>
+        Registro de tarjeta
+    </h1>
+    <!-- El número de tarjeta es un valor que se generaría dentro del cgi, ya después 
+    del registro de la tarjeta se podria mostrar el estado de la tarjeta-->
+    <form action="../cgi/crearTarjeta.pl" method="post">  
+        <label for="" min="100000" max="999999">Ingrese contraseña</label>
+        <input type="number"  placeholder="******" name="password">
+        <label for=""> Fecha de registro</label>
+        <input type="date" name="creationDate">
+        <label for=""> Fecha de vencimiento</label>
+        <input type="date" name="dueDate">
+        <button type="submit">Registrar</button>
+    </form>
+</body>
+</html>
