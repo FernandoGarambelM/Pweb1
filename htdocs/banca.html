@@ -8,8 +8,10 @@
 </head>
 <body>
     <div class="container">
-        <a href="index.html">Página principal</a>
-        <h2>Login</h2>
+        <a href="index.html">
+            <img src="logo.png" alt="Imagen del logo" width="15%">
+        </a>
+        <h2>Login para clientes</h2>
         <form action="/cgi-bin/banca.pl" method="post" class="loginForm">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
@@ -19,6 +21,9 @@
             <br>
             <button type="button" onclick="login()">Login</button>
         </form>
+    </div>
+    <div class="creditos">
+        <p>&copy; 2024 TheBestBank. Todos los derechos reservados.</p>
     </div>
 </body>
 </html>
