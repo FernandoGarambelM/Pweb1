@@ -4,44 +4,53 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Registrar Usuario</title>
-   <link rel="stylesheet" href="style.css">
-
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
+   <link rel="stylesheet" href="formStyle.css">
 </head>
 <body>
-   <h1>Registro de Usuario</h1>
+   <header>
+      <h2 class="logo">UnsaBank</h2>
+      <nav class="menu">
+         <a href="">Inicio</a>
+         <a href="">Cuenta</a>
+         <a href="">Targeta</a>
+         <button class="login">Login</button>
+      </nav>
+   </header>
+
+   <h1 id="titulo">Registro de Usuario</h1>
    <form id="registro-usuario">
-      <label for="nombres">Nombres Completos</label>
+      <label for="nombres">Nombres Completos:</label>
       <input type="text" id="nombres" name="nombres" placeholder="Nombres" required>
       <br><br>
-      <label for="apellidos">Apellidos Completos</label>
+      <label for="apellidos">Apellidos Completos:</label>
       <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required>
       <br><br>
-      <label for="dni">DNI</label>
+      <label for="dni">DNI:</label>
       <input type="number" id="dni" name="dni" placeholder="Nro DNI" required>
       
-      <label for="celular">Celular</label>
+      <label for="celular">Celular:</label>
       <input type="number" id="celular" name="celular" placeholder="+51 912 123 123" required>
       <br><br>
-      <label for="correo">Correo Electrónico</label>
+      <label for="correo">Correo Electrónico:</label>
       <input type="email" id="correo" name="correo" placeholder="ejemplo@banco.com" required>
       <br><br>
-      <label for="contraseña">Contraseña</label>
+      <label for="contraseña">Contraseña:</label>
       <input type="password" id="contraseña" name="contraseña" required>
       <br><br>
-      <label for="nacimiento">F. Nacimiento</label>
+      <label for="nacimiento">F. Nacimiento:</label>
       <input type="date" id="nacimiento" name="nacimiento" required>
 
-      <label for="genero">Género</label>
+      <label for="genero">Género:</label>
       <select id="genero" name="genero" required>
          <option value="masculino">Masculino</option>
          <option value="femenino">Femenino</option>
          <option value="otro">Otro</option>
       </select>
       <br><br>
-      <button type="submit">Registrarme</button>
-       
-
-
+      <button id="submit" type="submit">Registrarme</button>
    </form>
 
    
