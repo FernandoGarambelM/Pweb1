@@ -1,0 +1,80 @@
+* {
+   font-family: 'Poppins', sans-serif;
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+body{
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+}
+header{
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   padding: 15px 50px;
+   background-color: #3498db; 
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.logo{
+   font-size: 1.8em;
+}
+.menu a{
+   position: relative;
+   text-decoration: none;
+   margin-left: 40px;
+   color: aliceblue;
+   cursor: pointer;
+}
+.login{
+   height: 34px;
+   width:90px;
+   margin-left: 40px;
+   border-radius: 5px;
+   background: transparent;
+   color: aliceblue;
+   border: solid 1px aliceblue;
+   cursor: pointer;
+   transition: 0.5s;
+}
+.login:hover{
+   background-color: aliceblue;
+   color: black;
+}  
+#titulo{
+   margin-right: 77px;
+   text-align: center;
+   font-weight: 1000;
+   font-size: 40px;
+}
+#registro-usuario{
+   margin-top: 50px;
+   font-size: 17px;
+   border: 2px solid;
+   padding: 25px;
+   border-radius: 25px;
+   font-weight: bold;
+}
+#submit{
+   align-content: center;
+   width: 150px;
+   height: 34px;
+   border-radius: 25px;
+   background: black;
+   border: none;
+   color:aliceblue;
+   cursor: pointer;
+   margin-left: 35%;
+}
+input{
+   border-radius: 25px;
+   border-style: solid;
+   width: 170px;
+   height: 27px;
+   
+}
