@@ -13,20 +13,20 @@
             <img src="logo.png" alt="Imagen del logo" width="15%">
         </a>
         <h2>Login para clientes</h2>
-        <form action="/cgi-bin/banca.pl" method="post" class="loginForm">
+        <form class="loginForm" onsubmit="login(event)">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
             <br><br>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
             <br>
-            <button type="submit" onclick="login()" value="Ingresar" >Login</button>
+            <button type="submit" value="Ingresar">Login</button>
         </form>
-        <div id ="mensajeTarjeta" >
-            <div  class ="popup-content" id = "popup-content">
-                <p>Parece que no has registrado una tarjeta o no tienes una cuenta en nuestro sitio.</p>
-                <button onclick="redirectToRegistroTarjeta()">Registrar Tarjeta</button>
-                <button onclick="redirectToRegistro()">Crea una cuenta</button>
+        <div id="mensajeTarjeta">
+            <div class="popup-content" id="popup-content">
+                <p>Parece que aún no eres un cliente de este banco.</p>
+                <button onclick="redirectToInicio()">Regresar al inicio</button>
+                <button onclick="cerrarPopup()">Cerrar</button>
             </div>
         </div>
     </div>
