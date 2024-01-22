@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
+    <script src="scriptBanca.js"></script> 
 </head>
 <body>
     <div class="container">
@@ -19,8 +20,15 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
             <br>
-            <button type="button" onclick="login()">Login</button>
+            <button type="submit" onclick="login()" value="Ingresar" >Login</button>
         </form>
+        <div id ="mensajeTarjeta" >
+            <div  class ="popup-content" id = "popup-content">
+                <p>Parece que no has registrado una tarjeta o no tienes una cuenta en nuestro sitio.</p>
+                <button onclick="redirectToRegistroTarjeta()">Registrar Tarjeta</button>
+                <button onclick="redirectToRegistro()">Crea una cuenta</button>
+            </div>
+        </div>
     </div>
     <div class="creditos">
         <p>&copy; 2024 TheBestBank. Todos los derechos reservados.</p>
