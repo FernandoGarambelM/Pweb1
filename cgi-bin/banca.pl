@@ -22,7 +22,7 @@ unless ($dbh) {
     die "Error de conexión: " . $DBI::errstr;
 }
 
-my $query = "SELECT * FROM clientes WHERE nombres= ? AND paterno = ?";
+my $query = "SELECT * FROM tarjetas WHERE numero= ? AND clave = ?";
 my $sth = $dbh->prepare($query);
 $sth->execute($username, $password);
 
