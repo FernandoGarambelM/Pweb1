@@ -4,12 +4,25 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Registrar Cuenta Bancaria</title>
-   <link rel="stylesheet" href="style.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
+   <link rel="stylesheet" href="formStyle.css">
    
 </head>
 <body>
+   <header>
+      <h2 class="logo">UnsaBank</h2>
+      <img class="logo" src="logo.png" alt="Imagen del logo" width="5%">
+      <nav class="menu">
+         <a href="index.html">Inicio</a>
+         <a href="clientes.html">Usuario</a>
+         <a href="tarjetas.html">Targeta</a>
+         <button class="login">Login</button>
+      </nav>
+   </header>
    <h1>Registro de Cuenta Bancaria</h1>
-   <form id="registro-cuenta-bancaria" action="procesar_registro.php" method="POST">
+   <form id="registro-usuario" action="procesar_registro.php" method="POST">
       
       <label for="numero-cuenta">Número de Cuenta</label>
       <input type="text" id="numero-cuenta" name="numero_cuenta" placeholder="Número de Cuenta" required>

@@ -5,20 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
+    <script src="scriptBanca.js"></script> 
 </head>
 <body>
     <div class="container">
-        <a href="index.html">Página principal</a>
-        <h2>Login</h2>
-        <form action="/cgi-bin/banca.pl" method="post" class="loginForm">
+        <a href="index.html">
+            <img src="logo.png" alt="Imagen del logo" width="15%">
+        </a>
+        <h2>Login para clientes</h2>
+        <form class="loginForm" onsubmit="login(event)">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
             <br><br>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
             <br>
-            <button type="button" onclick="login()">Login</button>
+            <button type="submit" value="Ingresar">Login</button>
         </form>
+        <div id="mensajeTarjeta">
+            <div class="popup-content" id="popup-content">
+                <p>Parece que aún no eres un cliente de este banco.</p>
+                <button onclick="redirectToInicio()">Regresar al inicio</button>
+                <button onclick="cerrarPopup()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+    <div class="creditos">
+        <p>&copy; 2024 TheBestBank. Todos los derechos reservados.</p>
     </div>
 </body>
 </html>

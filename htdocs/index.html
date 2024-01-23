@@ -27,21 +27,28 @@
         </div>
         
     </div>
+    <p class="title">Bienvenido al banco, ingrese sus credenciales</p>
 
 
-    <form class="loginForm" action = "/cgi-bin/login.pl" method="post">
+    <form class="loginForm" onsubmit="loginUser(event)">
         <label for="user">Ingrese su usuario</label> 
         <br>
-        <input type="text" name="user" required>
+        <input type="text" name="user" id="user" required>
         <br>
         <label for="password">Ingrese su clave</label> 
         <br>
-        <input type="password" name="password" required>
+        <input type="password" name="password" id="password" required>
         <br>
         <input type="submit" value="Ingresar"> 
         <br>
     </form>
-
+    <div id="mensajeTarjeta">
+        <div class="popup-content" id="popup-content">
+            <p>Parece que aún no eres un cliente de este banco.</p>
+            <button onclick="redirectToInicio()">Regresar al inicio</button>
+            <button onclick="cerrarPopup()">Cerrar</button>
+        </div>
+    </div>
     <div class="footer">
         <div class="icons">
             <img src="fb-logo.png" alt="" width="50px">        
@@ -49,7 +56,12 @@
             <img src="wa-logo.png" alt="" width="50px">
             <img src="ig-logo.png" alt="" width="50px">
         </div>
+        <div class="creditos">
+            <p>&copy; 2024 TheBestBank. Todos los derechos reservados.</p>
+        </div>
     </div>
+    <script src="scriptIndex.js"></script>
+
 </body>
 </html>
 

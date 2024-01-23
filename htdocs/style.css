@@ -1,4 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Lemon&family=Raleway:wght@100&family=Single+Day&family=Vina+Sans&display=swap');
+
 body {
+   padding: 0;
+   margin: 0;
    background-color: #f4f4f4;
    text-align: center;
 }
@@ -17,6 +21,16 @@ form {
    background-color: #fff;
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+input[type="text"], input[type="password"]{
+   width: 200px;
+   transition: width 0.5s linear;
+}
+
+input[type="text"]:focus , input[type="password"]:focus {
+   width: 250px;
+}
+
+
 
 label {
    margin-bottom: 8px;
@@ -30,8 +44,124 @@ button {
    border-radius: 5px;
    cursor: pointer;
 }
+
 li{
    list-style: none;
    display: inline-block;
    margin-right: 50px;
+}
+
+/*Agregue esto nuevo, pueden usarlo para sus clases*/
+
+.footer {
+   background-color: #333;
+   color: white;
+   padding: 20px;
+   text-align: center;
+   position: fixed;
+   bottom: 0;
+   width: 100%;
+}
+
+.icons img {
+   margin: 0 10px;  
+}
+
+.creditos {
+   margin-top: 10px;
+}
+
+.creditos p {
+   font-style: italic; 
+   color: #999;       
+}
+
+.header {
+   background-color: #3498db;  
+   color: white;               
+   padding: 20px;              
+   display: flex;              
+   justify-content: space-between; 
+   align-items: center;        
+   margin-bottom: 7rem;
+}
+
+.logo {
+   display: flex;              
+   align-items: center;        
+   font-family: 'Lemon', serif;
+
+}
+
+.logo img {
+   margin-left: 10px;          
+}
+
+.list ul {
+   list-style: none;           
+   display: flex;              
+   gap: 20px;                
+}
+
+.list li {
+   font-weight: bold;         
+   cursor: pointer;            
+   transition: color 0.3s;   
+}
+
+.list li:hover {
+   color: #e74c3c;           
+}
+
+input[type="submit"]{
+   margin-top: 1rem;
+   background-color: #333;
+   color: #fff;
+   padding: 10px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+.title{
+   font-size: 2rem;
+   font-family: 'Courier New', Courier, monospace;
+}
+#mensajeTarjeta {
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.5);
+   z-index: 9999;
+}
+
+#mensajeTarjeta .popup-content {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   max-width: 400px;
+   margin: auto;
+   padding: 20px;
+   border: 2px solid #333;
+   border-radius: 10px;
+   background-color: #fff;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#mensajeTarjeta p {
+   font-size: 20px;
+   margin-bottom: 20px;
+}
+
+#mensajeTarjeta button {
+   background-color: #333;
+   color: #fff;
+   padding: 10px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
 }
