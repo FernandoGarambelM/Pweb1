@@ -31,6 +31,9 @@ header{
    color: aliceblue;
    cursor: pointer;
 }
+.menu :hover{
+   color: rgb(6, 2, 109);
+}
 .login{
    height: 34px;
    width:90px;
