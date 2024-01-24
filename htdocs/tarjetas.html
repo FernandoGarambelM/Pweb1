@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar tarjeta</title>
     <link rel="stylesheet" href="style.css">
+   
 </head>
 <body>
     <h1>
@@ -12,17 +13,20 @@
     </h1>
     <!-- El número de tarjeta es un valor que se generaría dentro del cgi, ya después 
     del registro de la tarjeta se podria mostrar el estado de la misma-->
-    <form action="../cgi/crearTarjeta.pl" method="post">  
+    <form action="../cgi-bin/tarjeta.pl" method="get" id="tarjetaForm">
+
         <label>Ingrese contraseña</label>
-        <input type="number" maxlength="6" placeholder="******" name="password">
+        <input type="number" maxlength="6" placeholder="******" name="password" id="password">
         <br><br>
-        <label for=""> Fecha de registro</label>
+        <label> Fecha de registro</label>
         <input type="date" name="creationDate">
         <br><br>
-        <label for=""> Fecha de vencimiento</label>
+        <label> Fecha de vencimiento</label>
         <input type="date" name="dueDate">
         <br><br>
-        <button type="submit">Registrar</button>
+        <button type="submit" onclick="validarFormulario()">Registrar</button>
+
     </form>
+    <script src="scriptTarjeta.js"></script>
 </body>
 </html>
