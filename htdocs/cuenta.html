@@ -21,32 +21,32 @@
          <button class="login">Login</button>
       </nav>
    </header>
-   <h1>Registro de Cuenta Bancaria</h1>
-   <form id="registro-usuario" action="procesar_registro.php" method="POST">
+   <h1 id="titulo">Registro de Cuenta Bancaria</h1>
+   <form id="registro-usuario" action="../cgi-bin/cuenta.pl" method="get">
       
       <label for="numero-cuenta">Número de Cuenta</label>
-      <input type="text" id="numero-cuenta" name="numero_cuenta" placeholder="Número de Cuenta" required>
+      <input type="number" id="numero-cuenta" name="numero_cuenta" placeholder="Número de Cuenta" required>
       <br><br>
       <label for="tipo-moneda">Tipo de Moneda</label>
-      <select id="tipo-moneda" name="tipo_moneda" required>
-         <option value="Dolar">Dolares</option>
-         <option value="Soles">Soles</option>
-         <option value="Euros">Euros </option>
+      <select  id="tipo-moneda" name="tipo_moneda" required>
+         <option value="d">Dolares</option>
+         <option value="s">Soles</option>
+         <option value="e">Euros </option>
       </select>
       <br><br>
       <label for="saldo">Tarjeta</label>
       <input type="number" id="saldo" name="num_tarjeta" placeholder="Número de tarjeta" required>
       <br><br>
       <label for="banco">Titular</label>
-      <input type="text" id="banco" name="nombre_titular" placeholder="Nombre del Titular" required>
+      <input type="number" id="banco" name="id_titular" placeholder="ID del Titular" required>
       <br><br>
       <label for="sucursal">Usuario</label>
-      <input type="text" id="sucursal" name="nombre_usuario" placeholder="Nombre del usuario" required>
+      <input type="number" id="sucursal" name="id_usuario" placeholder="ID del usuario" required>
       <br><br>
       <label for="correo">Correo Electrónico</label>
       <input type="email" id="correo" name="correo" placeholder="ejemplo@banco.com" required>
       <br><br>
-      <button type="submit">Registrarme</button>
+      <button id="submit" type="submit">Registrarme</button>
    </form>
 </body>
 </html>
