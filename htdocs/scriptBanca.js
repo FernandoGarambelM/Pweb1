@@ -3,7 +3,7 @@ function login(event) {
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', '/cgi-bin/banca.pl', true);
+    xhr.open('POST', '../cgi-bin/banca.pl', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
