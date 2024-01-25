@@ -20,7 +20,7 @@ function loginUser(event) {
     })
     .then(data => {
         if (data.isUser) {
-            alert('¡Bienvenido!');
+            mostrarMensajeTarjetaExito();
         } else {
             mostrarMensajeTarjeta();
         }
@@ -28,6 +28,18 @@ function loginUser(event) {
     .catch(error => {
         alert(error.message);
     });
+}
+function mostrarMensajeTarjetaExito() {
+    document.getElementById('popup-content').innerHTML = `
+        <p>Se ha logueado exitosamente!!!.</p>
+    `;
+    document.getElementById('mensajeTarjeta').style.display = 'block';
+    setTimeout(function() {
+        document.getElementById('user').value = '';
+        document.getElementById('password').value = '';
+        window.location.href = 'confirmacion.html'; //Pagina de un usuario registrado, se va a cambiar
+        document.getElementById('mensajeTarjeta').style.display = 'none';
+    }, 1000);
 }
 
 function mostrarMensajeTarjeta() {
