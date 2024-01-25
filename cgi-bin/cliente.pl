@@ -1,13 +1,16 @@
-#!/usr/bin/perl
+#!C:/xampp/perl/bin/perl.exe
 use strict;
 use warnings;
 use CGI;
+use CGI::Carp qw(croak fatalsToBrowser);
+use Encode;
 use DBI;
 
-my $dsn      = "DBI:mysql:database=proyecto_pweb1;host=localhost";
-my $username = "root";
-my $password = "";
-my $dbh      = DBI->connect($dsn, $username, $password, { RaiseError => 1, PrintError => 0 });
+my $database = 'proyecto_pweb1';
+my $host     = 'localhost';
+my $port     = '3306'; 
+my $user     = 'root';
+my $passwor = '';
 
 my $cgi = CGI->new;
 
@@ -16,16 +19,19 @@ my $apellidos  = $cgi->param('apellidos');
 my $dni        = $cgi->param('dni');
 my $celular    = $cgi->param('celular');
 my $correo     = $cgi->param('correo');
-my $contraseña = $cgi->param('contraseña');
+my $id_user    = $cgi->param('id_user');
 my $nacimiento = $cgi->param('nacimiento');
 my $genero     = $cgi->param('genero');
 
-my $cliente_insert = $dbh->prepare("INSERT INTO cliente (dni, nombres, apellido, nacimiento) VALUES (?, ?, ?, ?)");
-$cliente_insert->execute($dni, $nombres, $apellidos, $nacimiento);
+my $dbh = DBI->connect("DBI:mysql:database=$database;host=$host;port=$port", $user, $passwor);
 
-my $usuario_insert = $dbh->prepare("INSERT INTO usuario (usuario, clave) VALUES (?, ?)");
-$usuario_insert->execute($correo, $contraseña);
+unless ($dbh) {
+    die "Error de conexión: " . $DBI::errstr;
+}
+
+my $cliente_insert = $dbh->prepare("INSERT INTO clientes (dni, nombres, paterno, nacimiento, usuario_id) VALUES (?, ?, ?, ?, ?)");
+$cliente_insert->execute($dni, $nombres, $apellidos, $nacimiento, $id_user);
 
 $dbh->disconnect;
 
-print $cgi->redirect('confirmacion.html');
+print $cgi->redirect('../confirmacion.html');
