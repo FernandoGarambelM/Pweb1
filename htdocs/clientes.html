@@ -13,15 +13,16 @@
    <header>
       <h2 class="logo">UnsaBank</h2>
       <nav class="menu">
-         <a href="">Inicio</a>
-         <a href="">Cuenta</a>
-         <a href="">Targeta</a>
+         <a href="index.html">Inicio</a>
+         <a href="cuenta.html">Cuenta</a>
+         <a href="tarjetas.html">Targeta</a>
+         <a href="banca.html">Banca</a>
          <button class="login">Login</button>
       </nav>
    </header>
 
    <h1 id="titulo">Registro de Usuario</h1>
-   <form id="registro-usuario">
+   <form action="../cgi-bin/cliente.cgi" id="registro-usuario" method="post">
       <label for="nombres">Nombres Completos:</label>
       <input type="text" id="nombres" name="nombres" placeholder="Nombres" required>
       <br><br>

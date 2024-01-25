@@ -21,6 +21,20 @@ header{
    justify-content: space-between;
    align-items: center;
 }
+h1{
+   margin-right: 77px;
+   text-align: center;
+   font-weight: 1000;
+   font-size: 40px;
+}
+form{
+   margin-top: 50px;
+   font-size: 17px;
+   border: 2px solid;
+   padding: 25px;
+   border-radius: 25px;
+   font-weight: bold;
+}
 .logo{
    font-size: 1.8em;
 }
