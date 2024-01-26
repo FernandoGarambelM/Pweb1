@@ -7,57 +7,32 @@
     
     <title>Login de usuarios</title>
     <link rel="stylesheet" href="style.css">
-
+    
 </head>
 <body>
-    <div class="header">
-        <div class="logo">
-            <p>Nombre del banco</p>
-            <img src="logo.png" alt="Imagen del logo" width="15%">
-        </div>
-        
-        <div class="list">
-            <ul>
-                <li>pestaña1</li> 
-                <li>pestaña2</li>
-                <li>pestaña3</li>
-                <li>pestaña3</li>
-                <li>pestaña3</li>
-            </ul>
-        </div>
-        
-    </div>
-    <p class="title">Bienvenido al banco, ingrese sus credenciales</p>
-
 
     <form class="loginForm" onsubmit="loginUser(event)">
-        <label for="user">Ingrese su usuario</label> 
+        <img src="Logo.png" id="logo">
+        <p class="subtitle">Iniciar Sesión </p>
+        <p class="title">UnsaBank-Admin</p>
+
+        <label for="user">Usuario</label> 
         <br>
         <input type="text" name="user" id="user" required>
         <br>
-        <label for="password">Ingrese su clave</label> 
+        <label for="password">Clave</label> 
         <br>
         <input type="password" name="password" id="password" required>
         <br>
-        <input type="submit" value="Ingresar"> 
+        <input id="submit" type="submit" value="Ingresar"> 
         <br>
     </form>
+
     <div id="mensajeTarjeta">
         <div class="popup-content" id="popup-content">
             <p>Parece que aún no eres un cliente de este banco.</p>
             <button onclick="redirectToInicio()">Regresar al inicio</button>
             <button onclick="cerrarPopup()">Cerrar</button>
-        </div>
-    </div>
-    <div class="footer">
-        <div class="icons">
-            <img src="fb-logo.png" alt="" width="50px">        
-            <img src="tw-logo.png" alt="" width="50px">
-            <img src="wa-logo.png" alt="" width="50px">
-            <img src="ig-logo.png" alt="" width="50px">
-        </div>
-        <div class="creditos">
-            <p>&copy; 2024 TheBestBank. Todos los derechos reservados.</p>
         </div>
     </div>
     <script src="scriptIndex.js"></script>
