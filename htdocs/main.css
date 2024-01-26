@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@300&display=swap');
+:root {
+    --black: hsl(0, 0%, 0%);
+    --white: hsl(0, 0%, 100%);
+    --gray: hsl(0, 0%, 55%);
+    --text: 'Alata', sans-serif;
+    --titles: 'Josefin Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+p,
+.btn {
+    font-family: var(--text);
+}
+
+h2,
+.hero__content p,
+.mobile-menu__nav {
+    font-family: var(--titles);
+    text-transform: uppercase;
+}
+
+.hero {
+    background-image: url("image-hero.jpg");
+    background-size: cover;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 4rem;
+    display: flex;
+    gap: 3rem;
+    margin-left: 3rem;
+    margin-top: 3rem;
+}
+.logo img{
+    border-radius: 40px;
+}
+
+
+/*Cambiar con js, agregar un sidebar, -> responsive con celulares xd*/
+.desktop-menu {
+    display: none;
+}
+
+.open-menu,
+.close-menu {
+    border: 0;
+    background-color: transparent;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.hero__content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.hero__content p {
+    color: black;
+    font-size: 2rem;
+    border: 5px solid var(--black);
+    padding: 1rem;
+}
+
+main {
+    padding: 3rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.intro__info {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.intro__info p {
+    font-size: 1rem;
+    color: var(--gray);
+    line-height: 1.8;
+}
+
+
+.footer {
+    background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    color: var(--white);
+    padding: 2rem;
+    text-align: center;
+}
+
+.logo-menu,
+.icons-copyright {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.footer-menu ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+}
+
+.footer-menu ul li a {
+    font-family: var(--text);
+    color: var(--white);
+    font-size: .75rem;
+}
+
+.icons {
+    display: flex;
+    gap: 1rem;
+    font-size: 1.2rem;
+}
+
+.copyright {
+    color: var(--gray);
+    font-size: .75rem;
+}
+
+@media screen and (min-width: 800px) {
+    .hero {
+        background-image: url("image-hero.jpg");
+        padding: 2rem 6rem;
+        min-height: 100vh;
+    }
+    
+    .hero__content p {
+        font-size: 3rem;
+    }
+
+    .open-menu {
+        display: none;
+    }
+
+    .desktop-menu {
+        display: block;
+    }
+
+    .desktop-menu ul {
+        list-style-type: none;
+        display: flex;
+        gap: 2rem;
+        font-family: var(--text);
+    }
+
+    .desktop-menu ul li a {
+        color: var(--black);
+        font-size: 2rem;
+        border: 1px black solid;
+        border-radius: 1rem;
+        background-color: skyblue;
+        padding: 1rem;
+        transition: background-color 0.3s ease;
+    }
+    .desktop-menu ul li a:hover {
+        background-color: lightblue;
+    }
+
+
+    main {
+        padding: 6rem 8rem;
+    }
+
+    .intro {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        margin-bottom: 5rem;
+    }
+
+    .intro > img {
+        max-width: 100%;
+        grid-column: 1/6;
+        grid-row: 1/3;
+    }
+
+    .intro__info {
+        grid-column: 5/9;
+        grid-row: 2/3;
+        background-color: var(--white);
+        padding: 5rem;
+        padding-bottom: 0;
+        text-align: left;
+    }
+
+    .intro__info h2{
+        font-size: 2.5rem;
+    }
+
+    .btn-mobile {
+        display: none;
+    }
+
+    .btn-desktop {
+        display: block;
+    }
+
+
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 2rem 8rem;
+    }
+    
+    .logo-menu {
+        align-items: start;
+        margin-left: 2rem;
+    }
+
+    .footer-menu ul {
+        flex-direction: row;
+    }
+
+    .icons-copyright {
+        align-items: end;
+    }
+
+}
+
+.disabled {
+    display: none;
+}
