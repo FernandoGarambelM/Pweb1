@@ -2,7 +2,16 @@
 *{
    font-family: 'Poppins', sans-serif;
 }
-
+.background{
+   width: 100%;
+   min-height: 100vh;
+   top: 0;
+   left: 0;
+   background-image: url(wallpaper.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   filter: blur(5px);
+}
 body {
    padding: 0;
    margin: 0;
@@ -34,7 +43,9 @@ input{
 }
 
 input[type="text"]:focus , input[type="password"]:focus {
-   width: 250px;
+   width: 330px;
+   transition: 0.1s;
+   
 }
 label{
    font-size: 20px;
