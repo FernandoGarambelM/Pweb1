@@ -4,10 +4,11 @@ use warnings;
 use CGI;
 use DBI;
 
-my $dsn      = "DBI:mysql:database=proyecto_pweb1;host=localhost";
-my $username = "root";
-my $password = "";
-my $dbh      = DBI->connect($dsn, $username, $password, { RaiseError => 1, PrintError => 0 });
+
+my $db_host     = 'localhost';
+my $db_name     = 'proyecto_pweb1';
+my $db_user     = 'root';
+my $db_password = '';
 
 my $cgi = CGI->new;
 
@@ -16,13 +17,22 @@ my $tipoMoneda     = $cgi->param('tipo_moneda');
 my $numeroTarjeta  = $cgi->param('num_tarjeta');
 my $titular        = $cgi->param('id_titular');
 my $usuario        = $cgi->param('id_usuario');
-my $correo         = $cgi->param('correo');
+my $fechacreacion = $cgi->param('creationDate');
 
+# Conexión a la base de datos
+my $dbh = DBI->connect("DBI:mysql:database=$db_name;host=$db_host", $db_user, $db_password);
 
-my $cuenta_insert = $dbh->prepare("INSERT INTO `cuentas` (numero, moneda, tarjeta_id, cliente_id, usuario_id) VALUES (?, ?, ?, ?, ?)");
+if ($dbh) {
+    print "Content-type: text/html\n\n";
+    print "Conexión a la base de datos exitosa.<br>";
+} else {
+    print "Content-type: text/html\n\n";
+    print "Error al conectar a la base de datos: $DBI::errstr";
+    exit;
+}
+my $cuenta_insert = $dbh->prepare("INSERT INTO cuentas (numero, creado, estado, moneda, tarjeta_id, cliente_id, usuario_id) VALUES (?, ?, ?, ?, ?, ?)");
 
-
-$cuenta_insert->execute($numeroCuenta, $tipoMoneda, $numeroTarjeta, $titular, $usuario);
+$cuenta_insert->execute($numeroCuenta, $fechacreacion, 1, $tipoMoneda, $numeroTarjeta, $titular, $usuario);
 
 
 $dbh->disconnect;
