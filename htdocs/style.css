@@ -1,132 +1,63 @@
-@import url('https://fonts.googleapis.com/css2?family=Lemon&family=Raleway:wght@100&family=Single+Day&family=Vina+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+   font-family: 'Poppins', sans-serif;
+}
 
 body {
    padding: 0;
    margin: 0;
-   background-color: #f4f4f4;
+   height: 100vh;
+   background-color: #000000;
    text-align: center;
-}
-
-h1 {
-   text-align: center;
-   color: black;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 
 form {
-   max-width: 400px;
-   margin: auto;
-   padding: 20px;
-   border: 2px solid #333;
-   border-radius: 10px;
+   padding: 30,120px;
+   border: none;
+   width: 550px;
+   height: 500px;
+   position: absolute;
+   text-align: center;
+   border-radius: 20px;
    background-color: #fff;
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-input[type="text"], input[type="password"]{
-   width: 200px;
-   transition: width 0.5s linear;
+input{
+   border-radius: 7px;
+   border-style:solid;
+   border-color: #0fb945;
+   height: 40px;
+   width:320px;
+   margin-bottom: 10px;
 }
 
 input[type="text"]:focus , input[type="password"]:focus {
    width: 250px;
 }
-
-
-
-label {
-   margin-bottom: 8px;
+label{
+   font-size: 20px;
 }
 
-button {
-   background-color: #333;
-   color: #fff;
-   padding: 10px;
+#logo{
+   margin-top: 30px;
+   margin-bottom: 5px;
+   width: 40px;
+   height: auto;
+}
+#submit{
+   margin-top: 30px;
    border: none;
-   border-radius: 5px;
-   cursor: pointer;
+   color: aliceblue;
+   background-color: #000000;
+   width: 350px;
+   height: 45px;
+   border-radius: 25px;
+   font-weight: 600;
 }
 
-li{
-   list-style: none;
-   display: inline-block;
-   margin-right: 50px;
-}
 
-/*Agregue esto nuevo, pueden usarlo para sus clases*/
-
-.footer {
-   background-color: #333;
-   color: white;
-   padding: 20px;
-   text-align: center;
-   position: fixed;
-   bottom: 0;
-   width: 100%;
-}
-
-.icons img {
-   margin: 0 10px;  
-}
-
-.creditos {
-   margin-top: 10px;
-}
-
-.creditos p {
-   font-style: italic; 
-   color: #999;       
-}
-
-.header {
-   background-color: #3498db;  
-   color: white;               
-   padding: 20px;              
-   display: flex;              
-   justify-content: space-between; 
-   align-items: center;        
-   margin-bottom: 7rem;
-}
-
-.logo {
-   display: flex;              
-   align-items: center;        
-   font-family: 'Lemon', serif;
-
-}
-
-.logo img {
-   margin-left: 10px;          
-}
-
-.list ul {
-   list-style: none;           
-   display: flex;              
-   gap: 20px;                
-}
-
-.list li {
-   font-weight: bold;         
-   cursor: pointer;            
-   transition: color 0.3s;   
-}
-
-.list li:hover {
-   color: #e74c3c;           
-}
-
-input[type="submit"]{
-   margin-top: 1rem;
-   background-color: #333;
-   color: #fff;
-   padding: 10px;
-   border: none;
-   border-radius: 5px;
-   cursor: pointer;
-}
-
-.title{
-   font-size: 2rem;
-   font-family: 'Courier New', Courier, monospace;
-}
 #mensajeTarjeta {
    display: none;
    position: fixed;
@@ -164,4 +95,16 @@ input[type="submit"]{
    border: none;
    border-radius: 5px;
    cursor: pointer;
+}
+.subtitle{
+   margin-top: 0px;
+   margin-bottom: 0px;
+   font-size: 20px;
+   font-weight: 600;
+}
+.title{
+   margin-top: 0px;
+   font-size: 35px;
+   font-weight: 600;
+   margin-bottom: 25px;
 }
