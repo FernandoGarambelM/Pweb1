@@ -1,0 +1,171 @@
+body {
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 1rem;
+
+  width: 20%;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+#inicial{
+    font-size: 8rem;
+    background-color: skyblue;
+    border-radius: 4rem;
+    padding-inline: 1.5rem;
+    margin-left: 25%;
+}
+#name,
+#number {
+    font-weight: bold; 
+    color: blue; 
+}
+li:nth-of-type(2) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+li:nth-of-type(3) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+li{
+    padding-bottom: 1rem;
+}
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+
+
+}
+
+li a {
+    background-color: #555;
+    color: white;
+}
+
+li a:hover:not(.active) {
+  background-color: blue;
+
+  color: white;
+}
+
+.card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+.credit-card {
+    width: 400px;
+    height: 250px;
+    background-image: url(card.jpeg);
+    background-size: cover; 
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+.chip {
+    width: 50px;
+    height: 40px;
+    background: linear-gradient(145deg, #a9a9a9, #8f8f8f);
+    border-radius: 10px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.card-number {
+    font-size: 24px;
+    color: #000;
+    margin-top: 100px;
+    margin-left: 20px;
+    
+}
+.card-number span{
+    background-color: whitesmoke;
+    padding: 0.3rem;
+    border-radius: .3rem;
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+}
+.card-info span{
+    background-color: whitesmoke;
+    padding: 0.3rem;
+    border-radius: .3rem;
+}
+
+.card-holder,
+.expiry-date {
+    font-size: 18px;
+    color: #000;
+}
+
+.logo {
+    display: flex;
+    gap: .5rem;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    color: yellow;
+    font-weight: 800;
+
+}
+
+.logo img {
+    width: 40px;
+}
+
+
+.opciones {
+    text-align: center; 
+    margin-top: 20px;
+}
+
+.opciones p {
+    font-size: 18px; 
+    margin-bottom: 10px; 
+    padding-bottom: 4rem;
+}
+
+.boton-movimientos,
+.boton-estado-cuenta {
+    background-color: #4CAF50; 
+    color: white;
+    padding: 1rem; 
+    border: none; 
+    border-radius: 5px; 
+    margin: 5px; 
+    cursor: pointer;
+    font-size: 16px; 
+    text-decoration: none;
+}
+
+.boton-movimientos:hover,
+.boton-estado-cuenta:hover {
+    background-color: #45a049; 
+}
+
+.boton-movimientos:active,
+.boton-estado-cuenta:active {
+    background-color: #3e8e41; 
+}
