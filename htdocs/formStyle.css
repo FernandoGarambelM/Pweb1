@@ -2,41 +2,80 @@
    font-family: 'Poppins', sans-serif;
    padding: 0;
    margin: 0;
-   box-sizing: border-box;
 }
-body{
-   display:flex;
+body {
+   padding: 0;
+   margin: 0;
+   height: 100vh;
+   background-color: #ffffff;
+   text-align: center;
+   display: flex;
    justify-content: center;
    align-items: center;
-   min-height: 100vh;
 }
 header{
-   position: fixed;
+   position:absolute;
+   max-width: 100%;
    top: 0;
    left: 0;
    width: 100%;
-   padding: 15px 50px;
-   background-color: #3498db; 
+   padding-top: 11px;
+   padding-bottom : 11px;
+   background-color: black ; 
    display: flex;
-   justify-content: space-between;
+   justify-content:flex-start;
    align-items: center;
 }
 h1{
-   margin-right: 77px;
+   padding-top: 25px;
+   padding-bottom: 5px;
    text-align: center;
    font-weight: 1000;
    font-size: 40px;
 }
-form{
-   margin-top: 50px;
-   font-size: 17px;
-   border: 2px solid;
-   padding: 25px;
-   border-radius: 25px;
-   font-weight: bold;
+form {
+   padding: 30,120px;
+   border: 2px solid rgba(7, 7, 7, .2);
+   box-shadow: 0 0 10px rgba(7, 7, 7, 0.2);
+   width: 500px;
+   height: 400px;
+   position: absolute;
+   text-align:center;
+   border-radius: 20px;
+   background-color: none;
+   backdrop-filter: blur(10px);
+   overflow: auto;
 }
-.logo{
-   font-size: 1.8em;
+input{
+   border-radius: 7px;
+   border-style:solid;
+   border-color: #0fb945;
+   height: 37px;
+   width:320px;
+   margin-bottom: 10px;
+}
+label{
+   text-align: left;
+   margin-left: 25px;
+   display: block;
+   padding: 10px;
+}
+   
+.background{
+   width: 100%;
+   min-height: 100vh;
+   top: 0;
+   left: 0;
+   background-image: url(wallpaper2.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   
+}
+.name{
+   font-size: 42px;
+   color: aliceblue;
+   margin-right: 25px;
+   margin-left: 50px;
 }
 .menu a{
    position: relative;
@@ -64,34 +103,26 @@ form{
    color: black;
 }  
 #titulo{
-   margin-right: 77px;
-   text-align: center;
    font-weight: 1000;
    font-size: 40px;
 }
-#registro-usuario{
-   margin-top: 50px;
-   font-size: 17px;
-   border: 2px solid;
-   padding: 25px;
-   border-radius: 25px;
-   font-weight: bold;
-}
+
 #submit{
+   font-size: 20px;
    align-content: center;
-   width: 150px;
-   height: 34px;
+   width: 400px;
+   height: 45px;
    border-radius: 25px;
    background: black;
    border: none;
    color:aliceblue;
    cursor: pointer;
-   margin-left: 35%;
+   margin-bottom: 25px;
+   margin-top: 15px;
 }
-input{
-   border-radius: 25px;
-   border-style: solid;
-   width: 170px;
-   height: 27px;
-   
+#logo{
+   height: 42px;
+   margin-right: 450px; 
 }
+
+
