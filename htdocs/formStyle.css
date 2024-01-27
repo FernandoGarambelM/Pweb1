@@ -26,13 +26,7 @@ header{
    justify-content:flex-start;
    align-items: center;
 }
-h1{
-   padding-top: 25px;
-   padding-bottom: 5px;
-   text-align: center;
-   font-weight: 1000;
-   font-size: 40px;
-}
+
 form {
    padding: 30,120px;
    border: 2px solid rgba(7, 7, 7, .2);
@@ -49,7 +43,8 @@ form {
 input{
    border-radius: 7px;
    border-style:solid;
-   border-color: #0fb945;
+   box-shadow: 0 0 10px rgba(7, 7, 7, 0.2);  
+   border-color: #ffffff;
    height: 37px;
    width:320px;
    margin-bottom: 10px;
@@ -60,6 +55,7 @@ label{
    display: block;
    padding: 10px;
 }
+
    
 .background{
    width: 100%;
@@ -80,9 +76,10 @@ label{
 .menu a{
    position: relative;
    text-decoration: none;
-   margin-left: 40px;
+   margin-left: 30px;
    color: aliceblue;
    cursor: pointer;
+   font-size: 23px;
 }
 .menu :hover{
    color: rgb(6, 2, 109);
@@ -103,8 +100,12 @@ label{
    color: black;
 }  
 #titulo{
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   padding-top: 20px;
+   padding-bottom: 10px;
    font-weight: 1000;
    font-size: 40px;
+   font-weight: bold;   
 }
 
 #submit{
@@ -124,9 +125,9 @@ label{
    height: 42px;
    margin-right: 450px; 
 }
-   form:focus-within {
-      overflow: auto;
-   }
+form:focus-within {
+   overflow: auto;
+}
 form::-webkit-scrollbar {
    width: 12px; 
 }
