@@ -10,48 +10,38 @@
    <link rel="stylesheet" href="formStyle.css">
 </head>
 <body>
+   <div class="background"></div>
+
    <header>
-      <h2 class="logo">UnsaBank</h2>
+      <h2 class="name">UnsaBank</h2>
+      <img src="whitelogo.png" id="logo">
       <nav class="menu">
          <a href="index.html">Inicio</a>
          <a href="cuenta.html">Cuenta</a>
          <a href="tarjetas.html">Targeta</a>
          <a href="banca.html">Banca</a>
-         <button class="login">Login</button>
+         <a href="index.html"><button class="login">Salir</button></a>
       </nav>
    </header>
 
-   <h1 id="titulo">Registro de Usuario</h1>
-   <form action="../cgi-bin/cliente.pl" id="registro-usuario" method="post">
+   <form action="../cgi-bin/cliente.pl" id="registro-cliente" method="post">
+      <h1 id="titulo">Registro de Clientes</h1>
       <label for="nombres">Nombres Completos:</label>
       <input type="text" id="nombres" name="nombres" placeholder="Nombres" required>
-      <br><br>
-      <label for="apellidos">Apellidos Completos:</label>
+      <br>
+      <label for="apellidos">Apellido Paterno:</label>
       <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required>
-      <br><br>
+      <br>
+      <label for="apellidos">Apellido Materno:</label>
+      <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required>
+      <br>
       <label for="dni">DNI:</label>
       <input type="number" id="dni" name="dni" placeholder="Nro DNI" required>
       
-      <label for="celular">Celular:</label>
-      <input type="number" id="celular" name="celular" placeholder="+51 912 123 123" required>
-      <br><br>
-      <label for="correo">Correo Electrónico:</label>
-      <input type="email" id="correo" name="correo" placeholder="ejemplo@banco.com" required>
-      <br><br>
-      <label for="id_user">Id de usuario:</label>
-      <input type="password" id="contraseña" name="contraseña" required>
-      <br><br>
       <label for="nacimiento">F. Nacimiento:</label>
       <input type="date" id="nacimiento" name="nacimiento" required>
-
-      <label for="genero">Género:</label>
-      <select id="genero" name="genero" required>
-         <option value="masculino">Masculino</option>
-         <option value="femenino">Femenino</option>
-         <option value="otro">Otro</option>
-      </select>
-      <br><br>
-      <button id="submit" type="submit">Registrarme</button>
+      <br>
+      <button id="submit" type="submit">Continuar</button>
    </form>
 
    
