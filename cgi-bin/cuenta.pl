@@ -15,6 +15,7 @@ my $tipoMoneda    = $cgi->param('tipo_moneda');
 my $numeroTarjeta = $cgi->param('num_tarjeta');
 my $titular       = $cgi->param('id_titular');
 my $usuario       = $cgi->param('id_usuario');
+my $numero = int(rand(9000000000000000)) + 1000000000000000;
 
 # Conexión a la base de datos
 my $dbh = DBI->connect("DBI:mysql:database=$db_name;host=$db_host", $db_user, $db_password, { RaiseError => 1 });
@@ -48,8 +49,8 @@ if ($verificacion_tarjeta->fetchrow_array) {
 }
 
 # Realizar la inserción en la tabla 'cuentas'
-my $cuenta_insert = $dbh->prepare("INSERT INTO cuentas (moneda, tarjeta_id, cliente_id, usuario_id) VALUES (?, ?, ?, ?)");
-$cuenta_insert->execute($tipoMoneda, $numeroTarjeta, $titular, $usuario);
+my $cuenta_insert = $dbh->prepare("INSERT INTO cuentas (numero, moneda, tarjeta_id, cliente_id, usuario_id) VALUES (?, ?, ?, ?)");
+$cuenta_insert->execute($numero, $tipoMoneda, $numeroTarjeta, $titular, $usuario);
 
 print "Content-type: text/html\n\n";
 print "Inserción exitosa en la base de datos.";
