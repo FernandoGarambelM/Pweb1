@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Movimientos</title>
+    
+    </head>
+    <body>
+        <h1>Movimientos</h1>
+        <div id="movimientos-container"></div>
+
+        <script>
+            
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var movimientos = JSON.parse(this.responseText);
+                    mostrarMovimientos(movimientos);
+                }
+            };
+            xhr.open("GET", "../cgi-bin/historial.pl", true);
+            xhr.send();
+
+            
+            function mostrarMovimientos(movimientos) {
+                var container = document.getElementById("movimientos-container");
+                var html = "<table>";
+                html += "<tr><th>ID</th><th>Tarjeta ID</th><th>Cuenta ID</th><th>Monto</th><th>Realizado</th><th>Tipo</th></tr>";
+
+                movimientos.forEach(function(movimiento) {
+                    html += "<tr>";
+                    html += "<td>" + movimiento.id + "</td>";
+                    html += "<td>" + movimiento.tarjeta_id + "</td>";
+                    html += "<td>" + movimiento.cuenta_id + "</td>";
+                    html += "<td>" + movimiento.monto + "</td>";
+                    html += "<td>" + movimiento.realizado + "</td>";
+                    html += "<td>" + obtenerTipoMovimiento(movimiento.tipo) + "</td>";
+                    html += "</tr>";
+                });
+
+                html += "</table>";
+                container.innerHTML = html;
+            }
+
+            
+            function obtenerTipoMovimiento(tipo) {
+                return tipo === 1 ? "Depósito" : tipo === -1 ? "Retiro" : "Desconocido";
+            }
+        </script>
+    </body>
+</html>
