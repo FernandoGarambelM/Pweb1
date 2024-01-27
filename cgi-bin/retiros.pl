@@ -7,7 +7,7 @@ use Encode;
 use DBI;
 
 
-#Este CGI se encargará solamente de hacer retiros, por lo que el usuario
+#Este CGI se encargará solamente de hacer retiros, por lo que el cliente
 #solo accede a esta, los depositos los trabajará el mismo
 #trabajador del banco, por lo que será tratado en otro cgi. Para hacer depósito 
 # de mi cuenta a otros, por ahora no será implementado.
@@ -22,8 +22,8 @@ my $password = '';
 #valores que se usaran
 my $cgi = CGI->new;
 my $cantidad = $cgi->param('cantidad') || 50;
-my $clave_tarjeta = $cgi->param("clave_tarjeta") || 123456 ;
-my $num_tarjeta = $cgi->param("num_tarjeta") || 4557880159472848 ;
+my $clave_tarjeta = $cgi->param("clave_tarjeta") || 123456;
+my $num_tarjeta = $cgi->param("num_tarjeta") || 4557880159472848;
 
 
 
