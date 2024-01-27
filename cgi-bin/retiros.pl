@@ -83,11 +83,25 @@ if ($monto >= $cantidad) {
     exit;
 }
 
+
+#Debemos especificar que cuenta esta haciendo el movimiento, para ello se buscará tarjeta_id dentro de
+#de cuenta y obtenida la fila donde está este campo,  se extrae id de cuenta que sera mandado a movimientos
+my $id_cuenta;
+$sth = $dbh->prepare("SELECT * FROM cuentas WHERE tarjeta_id = ?");
+$sth->execute($id_tarjeta);
+if (my $fila = $sth->fetchrow_arrayref) {
+    $id_cuenta = $fila->[0];
+} else {
+    print "No se encontró";
+    exit;
+}
+
+
 # Ya hemos calculado el monto, ahora debemos agregar el monto a la tabla a manera de
 #historial
 
 $sth = $dbh->prepare("INSERT INTO movimientos (tarjeta_id, cuenta_id, monto, tipo) VALUES (?, ?, ?, ?)");
-$sth->execute($id_tarjeta, $id_tarjeta, $monto, -1);
+$sth->execute($id_tarjeta, $id_cuenta, $monto, -1);
 
 
 # Verificar si la actualización fue exitosa
