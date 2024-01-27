@@ -10,7 +10,7 @@ function login(event) {
             if (xhr.status == 200) {
                 var response = JSON.parse(xhr.responseText);
                 if (response.isLoggedIn) {
-                    alert('¡Bienvenido!');
+                    redirectToMovimientos();  
                 } else {
                     mostrarMensajeTarjeta();
                 }
@@ -35,7 +35,10 @@ function ocultarMensajeTarjeta() {
     document.getElementById('mensajeTarjeta').style.display = 'none';
 }
 function redirectToInicio() {
-    window.location.href = 'index.html';
+    window.location.href = 'main.html';
+}
+function redirectToMovimientos() {
+    window.location.href = 'welcome.html';
 }
 function mostrarPopup() {
     document.getElementById('mensajeTarjeta').style.display = 'flex';
