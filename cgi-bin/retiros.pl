@@ -59,18 +59,21 @@ if (my $fila = $sth->fetchrow_arrayref) {
 }
 
 #Ahora con el id, podremos ingresar a los movimientos para esa tarjeta
-$sth = $dbh->prepare("SELECT * FROM movimientos WHERE tarjeta_id = ?");
+$sth = $dbh->prepare("SELECT * FROM movimientos WHERE tarjeta_id = ? ORDER BY tarjeta_id DESC LIMIT 1");
 $sth->execute($id_tarjeta);
 
 #Extraemos el monto
-my $monto;  
+my $monto; 
+
 if (my $fila = $sth->fetchrow_arrayref) {
-    # Acceder a los valores de la fila según sea necesario
     $monto = $fila->[3];
 } else {
     print "No se encontró";
     exit;
 }
+
+
+
 
 #Como estamos en retiros, debemos hacer la validacion del saldo
 if ($monto >= $cantidad) {
@@ -84,10 +87,11 @@ if ($monto >= $cantidad) {
 #historial
 
 $sth = $dbh->prepare("INSERT INTO movimientos (tarjeta_id, cuenta_id, monto, tipo) VALUES (?, ?, ?, ?)");
-$sth->execute($id_tarjeta, $id_tarjeta, $monto, 1);
+$sth->execute($id_tarjeta, $id_tarjeta, $monto, -1);
 
 
 # Verificar si la actualización fue exitosa
+
 if ($sth->rows > 0) {
     print "Registro satisfactorio";
 } else {
