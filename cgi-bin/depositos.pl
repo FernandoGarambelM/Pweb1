@@ -69,20 +69,24 @@ if (my $fila = $sth->fetchrow_arrayref) {
     print "No se encontró";
     exit;
 }
-
-
-
-
-#Como estamos en retiros, debemos hacer la validacion del saldo
-
 $monto = $monto + $cantidad;
 
+#Debemos especificar que cuenta esta haciendo el movimiento, para ella se buscará tarjeta_id y el id 
+#de cuenta sera mandado a movimientos
+my $id_cuenta;
+$sth = $dbh->prepare("SELECT * FROM cuentas WHERE tarjeta_id = ?");
+$sth->execute($id_tarjeta);
+if (my $fila = $sth->fetchrow_arrayref) {
+    $id_cuenta = $fila->[0];
+} else {
+    print "No se encontró";
+    exit;
+}
 
 # Ya hemos calculado el monto, ahora debemos agregar el monto a la tabla a manera de
 #historial
-
 $sth = $dbh->prepare("INSERT INTO movimientos (tarjeta_id, cuenta_id, monto, tipo) VALUES (?, ?, ?, ?)");
-$sth->execute($id_tarjeta, $id_tarjeta, $monto, 1);
+$sth->execute($id_tarjeta, $id_cuenta, $monto, 1);
 
 
 # Verificar si la actualización fue exitosa
