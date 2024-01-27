@@ -44,7 +44,7 @@ form {
    border-radius: 20px;
    background-color: none;
    backdrop-filter: blur(10px);
-   overflow: auto;
+   overflow: hidden;
 }
 input{
    border-radius: 7px;
@@ -124,5 +124,14 @@ label{
    height: 42px;
    margin-right: 450px; 
 }
+   form:focus-within {
+      overflow: auto;
+   }
+form::-webkit-scrollbar {
+   width: 12px; 
+}
 
-
+form::-webkit-scrollbar-thumb {
+   background-color: rgba(0, 0, 0, 0.95); 
+   border-radius: 10px; 
+}
