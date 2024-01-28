@@ -37,7 +37,7 @@ function mostrarMensajeTarjetaExito() {
     setTimeout(function() {
         document.getElementById('user').value = '';
         document.getElementById('password').value = '';
-        window.location.href = 'confirmacion.html'; //Pagina de un usuario registrado, se va a cambiar
+        window.location.href = 'admin.html'; //cambiar el url para recibir el id_user (supongo que el grupo de backend se encargara de esto)
         document.getElementById('mensajeTarjeta').style.display = 'none';
     }, 1000);
 }
