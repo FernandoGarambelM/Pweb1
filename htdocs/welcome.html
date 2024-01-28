@@ -5,28 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UnsaBank - BancaVirtual</title>
     <link rel="stylesheet" href ="stateStyles.css">
+    <script src="scriptWelcome.js"></script> 
 </head>
 <body>
-    <body>
-
         <ul>
-
-          <li><span id="inicial">D</li>
-          <li>Nombre de la cuenta: <span id="name">Ingeniero Julian</span></li>
-          <li>Numero de la tarjeta: <span id="number">5138 5678 9245 1233</span> </li>
+          <li><span id="inicial">D</span></li>
+          <li>Nombre de la cuenta: <span id="name" class="name">Ingeniero Julian</span></li>
+          <li>Numero de la tarjeta: <span id="number" class="number"></span> </li>
           <li><a href="movimientos.html">Movimientos</a></li>
           <li><a href="estados.html">Estado de la cuenta</a></li>
         </ul>
+
         <div style="margin-left:25%;padding:1px 16px;height:1000px;">
             <h2>Bienvenido, estimado cliente</h2>
 
             <div class="card-container">
                 <div class="credit-card">
                     <div class="chip"></div>
-                    <div class="card-number"><span id="number">5138 5678 9245 1233</span></div>
+                    <div class="card-number"><span id="number" class="number"></span></div>
                     <div class="card-info">
-                        <div class="card-holder"><span id="name">Ingeniero Julian</span></div>
-                        <div class="expiry-date"><span id="date">05/01/2024</span></div>
+                        <div class="card-holder"><span id="name" class="name">Ingeniero Julian</span></div>
+                        <div class="expiry-date"><span id="date" class="date">05/01/2024</span></div>
                     </div>
                     <div class="logo">
                         <img src="LogoIcon.png" alt="Visa Logo">
@@ -45,7 +44,5 @@
             
 
         </div>
-        
-        </body>
 </body>
 </html>
