@@ -24,20 +24,23 @@
       <a href="index.html"><button class="login">Salir</button></a>
    </header>
 
-   <form action="../cgi-bin/cliente.pl" id="registro-cliente" method="post">
+   <form action="cliente.php" id="registro-cliente" method="post">
       <h1 id="titulo">Registro de Clientes</h1>
       <label for="nombres">Nombres Completos:</label>
       <input type="text" id="nombres" name="nombres" placeholder="Nombres" required>
       <br>
-      <label for="apellidos">Apellido Paterno:</label>
-      <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required>
+      <label for="paterno">Apellido Paterno:</label>
+      <input type="text" id="paterno" name="a_paterno" placeholder="Apellido Paterno" required>
       <br>
-      <label for="apellidos">Apellido Materno:</label>
-      <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required>
+      <label for="materno">Apellido Materno:</label>
+      <input type="text" id="materno" name="a_materno" placeholder="Apellido Materno" required>
       <br>
       <label for="dni">DNI:</label>
-      <input type="number" id="dni" name="dni" placeholder="Nro DNI" required>
-      
+      <input type="number" id="dni" name="dni" placeholder="Numero de DNI" required>
+      <br>
+      <label for="usuario">Confirme su usuario:</label>
+      <input type="text" id="usuario" name="usuario" placeholder="Ingrese su nombre usuario" required>
+
       <label for="nacimiento">F. Nacimiento:</label>
       <input type="date" id="nacimiento" name="nacimiento" required>
       <br>
