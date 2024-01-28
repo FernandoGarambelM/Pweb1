@@ -9,7 +9,7 @@ my $cgi = CGI->new;
 
 my $servername = "127.0.0.1";
 my $username   = "root";
-my $password   = "Amomifamilia3";
+my $password   = "";
 my $database   = "proyecto_pweb1";
 
 my $dbh = DBI->connect("DBI:mysql:database=$database;host=$servername", $username, $password, { RaiseError => 1, PrintError => 0 });
@@ -18,7 +18,7 @@ if (!$dbh) {
     die("Connection failed: " . $DBI::errstr);
 }
 
-# Obtener valores desde el formulario HTML
+
 my $nombres     = $cgi->param('nombres');
 my $paterno     = $cgi->param('a_paterno');
 my $materno     = $cgi->param('a_materno');
@@ -29,11 +29,9 @@ my $estado      = 1;
 my $usuario     = $cgi->param('usuario');
 my $usuario_id  = 2;
 
-# Preparar la consulta de inserción
 my $insert_query = "INSERT INTO clientes (nombres, paterno, materno, dni, nacimiento, creado, estado, usuario_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 my $insert_sth   = $dbh->prepare($insert_query);
 
-# Ejecutar la consulta de inserción
 $insert_sth->execute($nombres, $paterno, $materno, $dni, $nacimiento, $creado, $estado, $usuario_id);
 
 if ($DBI::errstr) {
