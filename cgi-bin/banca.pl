@@ -27,8 +27,9 @@ my $sth = $dbh->prepare($query);
 $sth->execute($username, $password);
 
 if (my $row = $sth->fetchrow_hashref) {
+    my $id = $row->{'id'}; 
     print "Content-type: application/json\n\n";
-    print '{"isLoggedIn": true, "isTarjetaRegistrada": true}';
+    print '{"isLoggedIn": true, "isTarjetaRegistrada": true, "idTarjeta": "' . $id . '"}';
 } else {
     print "Content-type: application/json\n\n";
     print '{"isLoggedIn": false, "isTarjetaRegistrada": false}';
