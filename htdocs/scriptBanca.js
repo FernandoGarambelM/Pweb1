@@ -10,6 +10,8 @@ function login(event) {
             if (xhr.status == 200) {
                 var response = JSON.parse(xhr.responseText);
                 if (response.isLoggedIn) {
+                    localStorage.setItem('numero', username);
+                    localStorage.setItem('tarjeta_id', response.idTarjeta);
                     redirectToMovimientos();  
                 } else {
                     mostrarMensajeTarjeta();
