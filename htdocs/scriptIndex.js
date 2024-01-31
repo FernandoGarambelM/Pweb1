@@ -20,6 +20,9 @@ function loginUser(event) {
     })
     .then(data => {
         if (data.isUser) {
+            localStorage.setItem('idUser', data.idUser);
+            localStorage.setItem('nameUser', data.nameUser);
+            console.log("Se almaceno: " + data.nameUser);
             mostrarMensajeTarjetaExito();
         } else {
             mostrarMensajeTarjeta();
