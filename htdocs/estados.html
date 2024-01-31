@@ -1,101 +1,56 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stateStyles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+    <title>Estado de la cuenta</title>
+    <link rel="stylesheet" href="estados.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        h1 {
-            text-align: center;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            padding: 1px 16px;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        #movimientos-container {
-            margin-left: 25%;
-            padding: 1px 16px;
-            height: 1000px;
-            overflow-x: auto; /* Evitar desplazamiento horizontal */
-        }
-    </style>
-    <title>Movimientos</title>
 </head>
 <body>
-    <h1>Movimientos</h1>
-    <ul>
-        <li><span id="inicial">D</span></li>
-        <li>Nombre de la cuenta: <span id="name" class="name">Ingeniero Julian</span></li>
-        <li>Numero de la tarjeta: <span id="number" class="number"></span></li>
-        <li><a href="movimientos.html">Movimientos</a></li>
-        <li><a href="welcome.html">Volver</a></li>
-    </ul>
-    <div id="movimientos-container">
-        <script>
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    var movimientos = JSON.parse(this.responseText);
-                    mostrarMovimientos(movimientos);
-                }
-            };
-            xhr.open("GET", "../cgi-bin/historial.pl", true);
-            xhr.send();
+    <header>
+        <h2 class="name">UnsaBank</h2>
+        <img src="whitelogo.png" id="logo">
+        <div class="user">
+            <p id="initial">J</p>
+            <p id ="name">Ingeniero Julian</p>
+            <p id ="number">69696969696969696</p>
 
-            function mostrarMovimientos(movimientos) {
-                var container = document.getElementById("movimientos-container");
-                var html = "<table>";
-                html += "<tr><th>ID</th><th>Tarjeta ID</th><th>Cuenta ID</th><th>Monto</th><th>Realizado</th><th>Tipo</th></tr>";
+        </div>
+        <nav class="menu">
+           <a href="movimientos.html">Movimientos</a>
+        </nav>
+        <a href="welcome.html"><button class="login">Salir</button></a>
+     </header>
+     <div class="contain">
+        <div class="informacion">
+            <h1>Movimientos</h1>
+            <div class="informacion retiros">
+                <p>Retiros</p>
+                <div id="retiros"></div>
+            </div>
+            <div class="informacion depositos">
+                <p>Depositos</p>
+                <div id="depositos"></div>
+            </div>
+         </div>
+    
+         <div class="saldo">
+            <h1>Saldo disponible</h1>
+            <p>
+            En este momento tienes S/.
+            <span id="saldoTotal"></span>
+            en nuestro banco!!!
+            </p>
+         </div>
+         <div class="grafico">
+            <h1>Grafico</h1>
+            <canvas id="grafico"></canvas>
+        </div>
+     </div>
 
-                movimientos.forEach(function(movimiento) {
-                    html += "<tr>";
-                    html += "<td>" + movimiento.id + "</td>";
-                    html += "<td>" + movimiento.tarjeta_id + "</td>";
-                    html += "<td>" + movimiento.cuenta_id + "</td>";
-                    html += "<td>" + movimiento.monto + "</td>";
-                    html += "<td>" + movimiento.realizado + "</td>";
-                    html += "<td>" + obtenerTipoMovimiento(movimiento.tipo) + "</td>";
-                    html += "</tr>";
-                });
-
-                html += "</table>";
-                container.innerHTML = html;
-            }
-
-            function obtenerTipoMovimiento(tipo) {
-                return tipo === 1 ? "Depósito" : tipo === -1 ? "Retiro" : "Desconocido";
-            }
-        </script>
-    </div>
 </body>
+<script src="scriptEstados.js"></script> 
+
 </html>

@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lemon&display=swap');
+* {
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+ }
+ body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    background-color: #ffffff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ header{
+    position:absolute;
+    max-width: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 11px;
+    background-color: black ; 
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+
+ }
+ 
+ .name{
+    font-size: 42px;
+    color: aliceblue;
+    margin-right: 25px;
+    margin-left: 50px;
+ }
+ .menu a{
+    position: relative;
+    text-decoration: none;
+    margin-left: 30px;
+    color: aliceblue;
+    cursor: pointer;
+    font-size: 23px;
+ }
+ .menu :hover{
+    color: rgb(6, 2, 109);
+ }
+ .login{
+    height: 34px;
+    width:90px;
+    margin-left: 40px;
+    border-radius: 5px;
+    background: transparent;
+    color: aliceblue;
+    border: solid 1px aliceblue;
+    cursor: pointer;
+    transition: 0.5s;
+ }
+ .login:hover{
+    background-color: aliceblue;
+    color: black;
+ }  
+
+ #logo{
+    height: 42px;
+    margin-right: 450px; 
+ }
+
+
+ .user{
+   color: white;
+   display: flex;
+   gap: 1rem;
+   background-color: rgb(67, 66, 66);
+   padding: 1rem;
+   align-items: center;
+ }
+ .user #initial{
+   border-radius: 10rem;
+   background-color: aqua;
+   color:  black;
+   padding: 1.5rem;
+ }
+ 
+ .contain {
+   position: absolute;
+   bottom: 1rem;
+   max-width: 1200px;
+   margin: 20px auto;
+   padding: 20px;
+   background-color: #fff;
+   border-radius: 8px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   overflow: hidden;
+   display: flex;
+   gap: 5rem;
+
+}
+.informacion {
+   margin-bottom: 20px;
+}
+.informacion h1 {
+   font-size: 24px;
+   color: #333;
+   margin-bottom: 10px;
+}
+#retiros, #depositos {
+   background-color: #f9f9f9;
+   border-radius: 4px;
+   padding: 10px;
+   overflow: auto;    
+   width: 300px;
+   height: 175px;
+
+}
+.saldo {
+   background-color: #e9f7f0;
+   padding: 20px;
+   border-radius: 8px;
+}
+.saldo h1 {
+   color: #4caf50;
+   font-size: 24px;
+   margin-bottom: 10px;
+}
+.saldo p{
+   font-family: 'Bebas Neue', sans-serif;
+   font-size: 30px;
+
+}
+.grafico {
+   background-color: #fff;
+   padding: 20px;
+   border-radius: 8px;
+}
+.grafico h1 {
+   color: #2196f3;
+   font-size: 24px;
+   margin-bottom: 10px;
+}
+#grafico{
+   width: 30rem;
+   height: 50rem;
+}
+canvas {
+   width: 100%;
+   height: auto;
+}
+table {
+   font-family: Arial, sans-serif;
+   border-collapse: collapse;
+   width: 100%;
+}
+
+table td, table th {
+   border: 1px solid #dddddd;
+   text-align: left;
+   padding: 8px;
+}
+
+table th {
+   background-color: #f2f2f2;
+}
+
+table tr:nth-child(even) {
+   background-color: #f9f9f9;
+}
+
+table tr:hover {
+   background-color: #f2f2f2;
+}
+
+table th {
+   background-color: #4CAF50;
+   color: white;
+   font-weight: bold;
+}
