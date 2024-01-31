@@ -28,8 +28,12 @@ my $sth = $dbh->prepare($query);
 $sth->execute($username, $password);
 
 if (my $row = $sth->fetchrow_hashref) {
+    my $id = $row->{'id'}; 
+    my $name = $row->{'usuario'}; 
+
     print "Content-type: application/json\n\n";
-    print '{"isUser": true}';
+    print '{"isUser": true, "idUser": "' . $id . '", "nameUser": "' . $name . '"}';
+
 } else {
     print "Content-type: application/json\n\n";
     print '{"isUser": false}';
