@@ -26,7 +26,9 @@ function actualizarElementosHTML() {
     var elementosNumero = document.getElementsByClassName('number');
     var elementosNombre = document.getElementsByClassName('name');
     var elementosCreado = document.getElementsByClassName('date');
-
+    
+    inicial.innerHTML = nombres.charAt(0)+"";
+    
     for (var i = 0; i < elementosNumero.length; i++) {
         elementosNumero[i].textContent = datoRecibido;
     }
