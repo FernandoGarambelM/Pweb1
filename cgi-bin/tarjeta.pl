@@ -20,6 +20,20 @@ my $creationDate = $cgi->param('creationDate');
 my $dueDate      = $cgi->param('dueDate');
 my $password     = $cgi->param('password');
 
+my $q = CGI->new;
+print $q->header('text/html');
+print<<BLOCK;
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta charset="utf-8">
+ <link rel="stylesheet" type="text/css" href="../htdocs/stateStyles.css">
+ <title>Búsquedas bibliográficas de Programación Web 1 </title>
+ </head>
+<body>
+BLOCK
+
+
 my $dbh = DBI->connect("DBI:mysql:database=$database;host=$host;port=$port", $user, $passwor);
 
 unless ($dbh) {
@@ -35,3 +49,15 @@ if ($insert_sth->errstr) {
 }
 
 $dbh->disconnect();
+
+print<<BLOCK;
+        <h1>Registro exitoso</h1>
+        <div class>
+            <p1>Numero de tarjeta: $num_tarjeta </p1><br>
+            <p1>Clave: $password </p1><br>
+            <p1>Fecha de creacion: $creationDate </p1><br>
+            <p1>fecha de vencimiento: $dueDate</p1><br>
+        </div>
+        <a href="../htdocs/tarjetas.html">Regreasar: </a>
+       
+BLOCK
