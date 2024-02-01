@@ -8,6 +8,7 @@
    
 </head>
 <body>
+    <div class="background"></div>
     <header>
         <h2 class="logo">UnsaBank</h2>
         <nav class="menu">
@@ -18,13 +19,11 @@
            <button class="login">Login</button>
         </nav>
      </header>
-    <h1>
-        Registro de tarjeta
-    </h1>
+ 
     <!-- El número de tarjeta es un valor que se generaría dentro del cgi, ya después 
     del registro de la tarjeta se podria mostrar el estado de la misma-->
     <form action="../cgi-bin/tarjeta.pl" method="get" id="tarjetaForm">
-
+        <h1>Registro de tarjeta</h1>
         <label>Ingrese contraseña</label>
         <input type="number" maxlength="6" placeholder="******" name="password" id="password">
         <br><br>
