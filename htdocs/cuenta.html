@@ -10,9 +10,10 @@
    <link rel="stylesheet" href="formStyle.css">
 </head>
 <body>
+   <div class="background"></div>
    <header>
       <h2 class="logo">UnsaBank</h2>
-      <img class="logo" src="logo.png" alt="Imagen del logo" width="5%">
+      <img class="logo" src="whitelogo.png" alt="Imagen del logo" width="5%">
       <nav class="menu">
          <a href="index.html">Inicio</a>
          <a href="clientes.html">Usuario</a>
@@ -20,21 +21,21 @@
          <button class="login">Login</button>
       </nav>
    </header>
-   <h1 id="titulo">Registro de Cuenta Bancaria</h1>
+   
    <form id="registro-usuario" action="../cgi-bin/cuenta.pl" method="post">
+      <h1 id="titulo">Registro de Cuenta Bancaria</h1>
       
-      
-      <br><br>
+      <br>
       <label for="tipo-moneda">Tipo de Moneda</label>
       <select  id="tipo_moneda" name="tipo_moneda" required>
          <option value="d">Dolares</option>
          <option value="s">Soles</option>
          <option value="e">Euros </option>
       </select>
-      <br><br>
+      <br>
       <label for="num_tarjeta">Tarjeta</label>
       <input type="number" id="num_tarjeta" name="num_tarjeta" placeholder="Número de tarjeta" required>
-      <br><br>
+      <br>
       <label for="id_titular">Titular</label>
       <input type="number" id="id_titular" name="id_titular" placeholder="ID del Titular" required>
       <br><br>
