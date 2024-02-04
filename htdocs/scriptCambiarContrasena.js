@@ -1,10 +1,41 @@
-//Aun falta completar 
+var idUsuario = localStorage.getItem('idUser');
+
 document.addEventListener('DOMContentLoaded', function () {
+    opciones();
     document.getElementById('actual-password').addEventListener('input', function () {
         var currentPassword = this.value;
         verificarContrasena(currentPassword);
     });
 });
+
+function opciones() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '../cgi-bin/opciones_usuario.pl', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                var response = JSON.parse(xhr.responseText);
+                var selectElement = document.getElementById("number-cuenta");
+                for (var i = 0; i < response.length; i++) {
+                    var option = document.createElement("option");
+                    option.text = response[i].numero; 
+                    selectElement.add(option);
+                }
+                selectElement.addEventListener('change', function () {
+                    var selectedValue = this.value;
+                    console.log('Opción seleccionada:', selectedValue);
+                
+                });
+
+            } else {
+                console.error('Error en la solicitud. Estado: ' + xhr.status);
+            }
+        }
+    };
+    var formData = 'idUser=' + encodeURIComponent(idUsuario);
+    xhr.send(formData);
+}
 
 function verificarContrasena(currentPassword) {
     var xhr = new XMLHttpRequest();
@@ -28,8 +59,7 @@ function verificarContrasena(currentPassword) {
     xhr.send(formData);
 }
 
-function cambiarContrasena() {
-    var idUsuario = localStorage.getItem('idUser');
+function cambiarContrasena() {;
     var password = document.getElementById('actual-password').value;
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '../cgi-bin/cambiarContrasena.pl', true);
