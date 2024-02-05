@@ -40,4 +40,4 @@ if ($DBI::errstr) {
 
 $dbh->disconnect();
 
-print $cgi->redirect('../confirmacion.html');
+print $cgi->redirect('../tarjetas.html');
