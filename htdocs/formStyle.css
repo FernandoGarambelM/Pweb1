@@ -188,3 +188,56 @@ form::-webkit-scrollbar-thumb {
    border-radius: 5px;
    cursor: pointer;
 }
+
+/* Estilos generales para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+/* Estilos para las celdas de encabezado */
+th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+/* Estilos para las filas impares */
+tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Estilos para los botones dentro de las celdas */
+button {
+    padding: 6px 10px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para los botones de eliminar */
+.delete {
+    background-color: #dc3545;
+}
+
+.delete:hover {
+    background-color: #bd2130;
+}
+
+/* Estilos para el contenedor de la tabla */
+#table-container {
+    margin-top: 20px;
+}
