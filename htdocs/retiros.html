@@ -11,7 +11,7 @@
     <form action="../cgi-bin/retiros.pl">
 
         <label for="">Número de tarjeta</label>
-        <input type="number" name="num_tarjeta">
+        <input type="number" name="num_tarjeta" id ="num_tarjeta" readonly>
 
         <label>Contraseña</label>
         <input type="number" name="clave_tarjeta">
@@ -23,4 +23,11 @@
     </form>
     
 </body>
+<script>
+    var urlParams = new URLSearchParams(window.location.search);
+    var numTarjeta = urlParams.get('num_tarjeta');
+
+    document.getElementById('num_tarjeta').value = numTarjeta;
+
+</script>
 </html>
