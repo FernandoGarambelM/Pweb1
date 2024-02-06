@@ -31,7 +31,7 @@ fetch(url, {
 function mostrarTabla(usuarios) {
     var table = document.getElementById("table-container");
     var html = "<table>";
-    html += "<tr><th>DNI</th><th>Nombres</th><th>Apellido paterno</th><th>Apellido materno</th><th>Nacimiento</th><th>Creado</th><th>Cuentas</th></tr>";
+    html += "<tr><th>DNI</th><th>Nombres</th><th>Apellido paterno</th><th>Apellido materno</th><th>Nacimiento</th><th>Creado</th><th>Eliminar</th><th>Cuentas</th></tr>";
     
     usuarios.forEach(function(usuario) {
         html += "<tr>";
@@ -80,8 +80,7 @@ function eliminarCuenta(cuentaId) {
     })
     .then(data => {
         console.log(data); 
-        alert("Se eliminaron los registros correctamente");
-        location.reload();
+        mostrarMensajeExito();
 
     })
     .catch(error => {
@@ -102,17 +101,43 @@ function eliminarCliente(clienteId) {
         if (response.ok) {
             return response.json();
         } else {
-            console.log("error: " + url1); 
-            throw new Error('Error en la solicitud. Estado: ' + response.status);
+            mostrarMensajeFracaso();
+
         }
     })
     .then(data => {
         console.log(data);
-        alert("Se eliminaron los registros correctamente");
-        location.reload();
+        mostrarMensajeExito();
 
     })
     .catch(error => {
         alert(error.message);
     });
+}
+
+function mostrarMensajeExito() {
+    document.getElementById('popup-content').innerHTML = `
+        <p>Registros eliminados satisfactoriamente.</p>
+        <button onclick="cerrarPopup()">Cerrar</button>
+    `;
+    document.getElementById('mensajeTarjeta').style.display = 'block';
+
+}
+
+function mostrarMensajeFracaso() {
+    document.getElementById('popup-content').innerHTML = `
+        <p>Necesita eliminar a las cuentas para continuar</p>
+        <button onclick="cerrarPopup()">Cerrar</button>
+    `;
+    document.getElementById('mensajeTarjeta').style.display = 'block';
+}
+
+function mostrarPopup() {
+    document.getElementById('mensajeTarjeta').style.display = 'flex';
+}
+
+function cerrarPopup() {
+    document.getElementById('mensajeTarjeta').style.display = 'none';
+    location.reload();
+
 }
