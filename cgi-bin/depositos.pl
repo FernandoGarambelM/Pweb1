@@ -35,7 +35,78 @@ print<<BLOCK;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informe del depósito</title>
-    <link rel="stylesheet" href="../htdocs/movimientos.css">
+    <link rel='stylesheet' href='../htdocs/movimientos.css'>
+    <style>
+    body {
+        background-image: url('../wallpaper2.jpg');
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    
+    h1 {
+        text-align: center;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    table {
+        width: 80%;
+        margin: 0 auto; 
+        border-collapse: collapse; 
+        margin-bottom: 2rem;
+    }
+    td {
+        background-color: black;
+        color: wheat;
+    }
+    th, td {
+        padding: 10px; 
+        border: 1px solid #ddd; 
+        text-align: left; 
+    }
+
+    th {
+        background-color: wheat; 
+        text-align: center;
+    }
+
+    td:hover {
+        background-color: #4b1717; 
+    }
+
+    .dirigir{
+        background-color: rgb(65, 6, 6);
+        display: flex;
+        padding: 10px;
+        width: 7%;
+        justify-content: center;
+        margin: 0 auto; 
+        border-radius: 2rem;
+        
+    }
+
+    .regresar {
+        color: wheat;
+    } 
+
+    .dirigir:hover {
+        background-color: rgb(11, 11, 103);
+        color: wheat
+    }
+
+    .error {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    </style>
 </head>
 <body>
 BLOCK
