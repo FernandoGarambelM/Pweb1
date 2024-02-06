@@ -34,7 +34,7 @@ print<<BLOCK;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informe del depósito</title>
+    <title>Informe del retiro</title>
     <link rel="stylesheet" href="../htdocs/movimientos.css">
 </head>
 <body>
