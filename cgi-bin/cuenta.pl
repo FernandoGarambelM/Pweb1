@@ -14,7 +14,7 @@ my $cgi = CGI->new;
 my $tipoMoneda    = $cgi->param('tipo_moneda');
 my $titular       = $cgi->param('id_titular');
 my $usuario       = $cgi->param('id_usuario');
-my $tarjetaId = 1;
+my $tarjetaId = $cgi->param('id_tarjeta');
 # Conexión a la base de datos
 my $dbh = DBI->connect("DBI:mysql:database=$db_name;host=$db_host", $db_user, $db_password, { RaiseError => 1 });
 
