@@ -19,9 +19,9 @@ my $password = '';
 
 #valores que se usaran
 my $cgi = CGI->new;
-my $cantidad = $cgi->param('cantidad') || 50;
-my $clave_tarjeta = $cgi->param("clave_tarjeta") || 123456;
-my $num_tarjeta = $cgi->param("num_tarjeta") || 4557880159472848;
+my $cantidad = $cgi->param('cantidad');
+my $clave_tarjeta = $cgi->param("clave_tarjeta");
+my $num_tarjeta = $cgi->param("num_tarjeta");
 
 
 #Para hacer la salidad en formato html
@@ -44,9 +44,9 @@ BLOCK
 # Conexión a la base de datos
 my $dbh = DBI->connect("DBI:mysql:database=$database;host=$host;port=$port", $user, $password, {RaiseError => 1, PrintError => 0});
 
+
 #Necesitamos buscar el numero de tarjeta (valor único) y una vez extraida, verificar si
 #la clave ingresada es correcta
-
 my $sth = $dbh->prepare("SELECT * FROM tarjetas WHERE numero = ?");
 $sth->execute($num_tarjeta);
 
@@ -58,14 +58,21 @@ if (my $fila = $sth->fetchrow_arrayref) {
     if ($clave_tarjeta == $tem_clave) {
         $id_tarjeta = $fila->[0];
     } else {
-        # Las claves no coinciden, salir del CGI, ya le agregan el formato adecuado para
-        #que se muestre en la página.. print "Content-type: text/plain\n\n";
+        print "<div class='error'>";
+        print "<div class='mensaje'>";
         print "<h1>Error: Las claves no coinciden, <a href='../htdocs/depositos.html'>intente de nuevo</a>\n";
+        print "</div>";
+        print "<img src='../htdocs/error.png'>";
+        print "</div>";
         exit;
     }
 } else {
-    # No se encontró una tarjeta con el número proporcionado, salir del CGI
+    print "<div class='error'>";
+    print "<div class='mensaje'>";
     print "<h1>Error: No se encontro la tarjeta, <a href='../htdocs/depositos.html'>intente de nuevo</a>\n";
+    print "</div>";
+    print "<img src='../htdocs/error.png'>";
+    print "</div>";
     exit;
 }
 
@@ -85,7 +92,7 @@ if (my $fila = $sth->fetchrow_arrayref) {
 my $monto = $monto_antiguo + $cantidad;
 
 
-#Debemos especificar que cuenta esta haciendo el movimiento, para ella se buscará tarjeta_id y el id 
+#Debemos especificar que cuenta esta haciendo el movimiento, para ello se buscará tarjeta_id y el id 
 #de cuenta sera mandado a movimientos
 my ($id_cuenta, $cliente_id, $usuario_id);
 $sth = $dbh->prepare("SELECT * FROM cuentas WHERE tarjeta_id = ?");
@@ -98,34 +105,6 @@ if (my $fila = $sth->fetchrow_arrayref) {
     print "No se encontró";
     exit;
 }
-
-
-my ($nombre, $paterno, $materno, $dni);
-$sth = $dbh->prepare("SELECT * FROM clientes WHERE id = ?");
-$sth->execute($cliente_id);
-if (my $fila = $sth->fetchrow_arrayref) {
-    $dni = $fila->[1];
-    $nombre = $fila->[2];
-    $paterno = $fila->[3];
-    $materno = $fila->[4];
-} else {
-    print "No se encontró";
-    exit;
-}
-$nombre = $nombre.$paterno.$materno;
-
-
-
-my $usuarioBanco;
-$sth = $dbh->prepare("SELECT * FROM usuarios WHERE id = ?");
-$sth->execute($usuario_id);
-if (my $fila = $sth->fetchrow_arrayref) {
-    $usuarioBanco = $fila->[1];
-} else {
-    print "No se encontró";
-    exit;
-}
-$nombre = $nombre.$paterno.$materno;
 
 # Ya hemos calculado el monto, ahora debemos agregar el monto a la tabla a manera de
 #historial
@@ -142,6 +121,35 @@ if ($sth->rows > 0) {
     print "No se logró ejecutar la accion";
 }
 
+#Ahora con los datos extraidos, se buscaran otros mas para crear un informe de la transaccion
+my ($nombre, $paterno, $materno, $dni);
+$sth = $dbh->prepare("SELECT * FROM clientes WHERE id = ?");
+$sth->execute($cliente_id);
+if (my $fila = $sth->fetchrow_arrayref) {
+    $dni = $fila->[1];
+    $nombre = $fila->[2];
+    $paterno = $fila->[3];
+    $materno = $fila->[4];
+} else {
+    print "No se encontró";
+    exit;
+}
+my $nombre_completo = "$nombre  $paterno  $materno";
+
+
+
+my $usuarioBanco;
+$sth = $dbh->prepare("SELECT * FROM usuarios WHERE id = ?");
+$sth->execute($usuario_id);
+if (my $fila = $sth->fetchrow_arrayref) {
+    $usuarioBanco = $fila->[1];
+} else {
+    print "No se encontró";
+    exit;
+}
+
+
+#Como se tienen los datos necesarios, se procede a realizar el informe
 print<<BLOCK;
         <h1>Informacion del deposito</h1>
         <br><br>
@@ -152,7 +160,7 @@ print<<BLOCK;
             </tr>
             <tr>
                 <td>Cliente</td>
-                <td>$nombre</td>
+                <td>$nombre_completo</td>
             </tr>
 
             <tr>
@@ -187,7 +195,7 @@ print<<BLOCK;
         </table>
 
         <div class="dirigir">
-            <a href='../htdocs/depositos.html'>Regresar</a>
+            <a class='regresar' href='../htdocs/depositos.html'>Regresar</a>
         </div>
         
 </body>
