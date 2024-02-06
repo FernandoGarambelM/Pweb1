@@ -4,11 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UnsaBank - BancaVirtual</title>
+    <link rel="stylesheet" href="formStyle.css">
+
 </head>
 <body>
-        <h2>Bienvenido, estimado usuario</h2>
-        <p>Imprimir tabla con todos los clientes, como cada cliente tiene un id_user </p>
+    <header>
+        <h2 class="name">UnsaBank</h2>
+        <img src="whitelogo.png" id="logo">
+        <a href="admin.html" style="margin-left: auto;"><button class="login">Salir</button></a>
+    </header>
+
+    <div class="mensaje">
         <div id="table-container"></div>
+    </div>
+    <div id="mensajeTarjeta">
+        <div class="popup-content" id="popup-content">
+            <p>Parece que aún no eres un cliente de este banco.</p>
+            <button onclick="redirectToInicio()">Regresar al inicio</button>
+            <button onclick="cerrarPopup()">Cerrar</button>
+        </div>
+    </div>
 </body>
 <script src="scriptDelete.js"></script>
 
