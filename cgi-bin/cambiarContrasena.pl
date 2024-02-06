@@ -5,33 +5,24 @@ use CGI;
 use CGI::Carp qw(croak fatalsToBrowser);
 use Encode;
 use DBI;
+use JSON::MaybeXS qw(to_json);
 
 my $database = 'proyecto_pweb1';
 my $host     = 'localhost';
 my $port     = '3306'; 
 my $user     = 'root';
-my $passwor = '';
+my $password = '';
 
 my $cgi = CGI->new;
-my $password = $cgi->param('currentPassword');
-my $number_cuenta = $cgi->param('number_cuenta'); 
 
-my $dbh = DBI->connect("DBI:mysql:database=$database;host=$host;port=$port", $user, $passwor);
+my $number_cuenta = $cgi->param('number_cuenta');
+my $new_password = $cgi->param('new_password');
+
+my $dbh = DBI->connect("DBI:mysql:database=$database;host=$host;port=$port", $user, $password);
 
 unless ($dbh) {
     die "Error de conexión: " . $DBI::errstr;
 }
-
-my $query_tarjeta = "SELECT id FROM tarjetas WHERE clave = ?";
-my $sth_tarjeta = $dbh->prepare($query_tarjeta);
-$sth_tarjeta->execute($password);
-my $tarjeta_id;
-
-if (my $result_tarjeta = $sth_tarjeta->fetchrow_arrayref()) {
-    $tarjeta_id = $result_tarjeta->[0];
-}
-
-$sth_tarjeta->finish(); 
 
 my $sth_cuenta = $dbh->prepare("SELECT tarjeta_id FROM cuentas WHERE numero = ?");
 $sth_cuenta->execute($number_cuenta);
@@ -44,7 +35,14 @@ if (my $result_cuenta = $sth_cuenta->fetchrow_arrayref()) {
 
 $sth_cuenta->finish(); 
 
-if ($tarjeta_id == $tarjetaid) {
+my $sth_tarjeta = $dbh->prepare("UPDATE tarjetas SET clave = ? WHERE id = ?");
+$sth_tarjeta->execute($new_password, $tarjetaid);
+
+$sth_tarjeta->finish(); 
+
+my $filas_afectadas = $sth_tarjeta->rows;
+
+if ($filas_afectadas > 0) {
     print "Content-type: application/json\n\n";
     print '{"isCorrect": true}';
 } else {
@@ -52,4 +50,3 @@ if ($tarjeta_id == $tarjetaid) {
     print '{"isCorrect": false}';
 }
 $dbh->disconnect();
-
