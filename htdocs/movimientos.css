@@ -1,0 +1,48 @@
+body {
+    background-image: url('../htdocs/wallpaper2.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  h1 {
+    text-align: center;
+  }
+  a {
+    text-decoration: none;
+  }
+
+  
+table {
+    width: 80%;
+    margin: 0 auto; 
+    border-collapse: collapse; 
+    margin-bottom: 2rem;
+}
+td {
+    background-color: black;
+    color: wheat;
+}
+th, td {
+    padding: 10px; 
+    border: 1px solid #ddd; 
+    text-align: left; 
+}
+
+th {
+    background-color: wheat; 
+}
+
+td:hover {
+    background-color: #4b1717; 
+}
+
+.dirigir{
+    background-color: wheat;
+    display: inline-block;
+    padding: 10px;
+    margin: 0 auto; 
+    justify-content: center;
+    
+}
