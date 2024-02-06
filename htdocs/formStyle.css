@@ -139,7 +139,7 @@ form::-webkit-scrollbar-thumb {
 #mensaje-error-contrasena {
    position: absolute;
    top: 50%;
-   left: 50%;
+   left: 75%;
    transform: translate(-50%, -50%);
    max-width: 400px;
    margin: auto;
