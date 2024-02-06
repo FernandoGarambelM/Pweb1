@@ -24,6 +24,21 @@ my $clave_tarjeta = $cgi->param("clave_tarjeta") || 123456;
 my $num_tarjeta = $cgi->param("num_tarjeta") || 4557880159472848;
 
 
+#Para hacer la salidad en formato html
+my $q = CGI->new;
+my $year = $q->param('year');
+print $q->header('text/html');
+print<<BLOCK;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe del depósito</title>
+    <link rel="stylesheet" href="../htdocs/movimientos.css">
+</head>
+<body>
+BLOCK
 
 
 # Conexión a la base de datos
@@ -44,15 +59,13 @@ if (my $fila = $sth->fetchrow_arrayref) {
         $id_tarjeta = $fila->[0];
     } else {
         # Las claves no coinciden, salir del CGI, ya le agregan el formato adecuado para
-        #que se muestre en la página
-        print "Content-type: text/plain\n\n";
-        print "Error: Las claves no coinciden. Saliendo del CGI.\n";
+        #que se muestre en la página.. print "Content-type: text/plain\n\n";
+        print "<h1>Error: Las claves no coinciden, <a href='../htdocs/depositos.html'>intente de nuevo</a>\n";
         exit;
     }
 } else {
     # No se encontró una tarjeta con el número proporcionado, salir del CGI
-    print "Content-type: text/plain\n\n";
-    print "Error: Número de tarjeta no válido. Saliendo del CGI.\n";
+    print "<h1>Error: No se encontro la tarjeta, <a href='../htdocs/depositos.html'>intente de nuevo</a>\n";
     exit;
 }
 
@@ -61,32 +74,64 @@ $sth = $dbh->prepare("SELECT * FROM movimientos WHERE tarjeta_id = ? ORDER BY ta
 $sth->execute($id_tarjeta);
 
 #Extraemos el monto
-my $monto; 
+my $monto_antiguo; 
 
 if (my $fila = $sth->fetchrow_arrayref) {
-    $monto = $fila->[3];
+    $monto_antiguo = $fila->[3];
 } else {
     print "No se encontró";
     exit;
 }
-$monto = $monto + $cantidad;
+my $monto = $monto_antiguo + $cantidad;
+
 
 #Debemos especificar que cuenta esta haciendo el movimiento, para ella se buscará tarjeta_id y el id 
 #de cuenta sera mandado a movimientos
-my $id_cuenta;
+my ($id_cuenta, $cliente_id, $usuario_id);
 $sth = $dbh->prepare("SELECT * FROM cuentas WHERE tarjeta_id = ?");
 $sth->execute($id_tarjeta);
 if (my $fila = $sth->fetchrow_arrayref) {
     $id_cuenta = $fila->[0];
+    $cliente_id = $fila->[6];
+    $usuario_id = $fila->[7];
 } else {
     print "No se encontró";
     exit;
 }
+
+
+my ($nombre, $paterno, $materno, $dni);
+$sth = $dbh->prepare("SELECT * FROM clientes WHERE id = ?");
+$sth->execute($cliente_id);
+if (my $fila = $sth->fetchrow_arrayref) {
+    $dni = $fila->[1];
+    $nombre = $fila->[2];
+    $paterno = $fila->[3];
+    $materno = $fila->[4];
+} else {
+    print "No se encontró";
+    exit;
+}
+$nombre = $nombre.$paterno.$materno;
+
+
+
+my $usuarioBanco;
+$sth = $dbh->prepare("SELECT * FROM usuarios WHERE id = ?");
+$sth->execute($usuario_id);
+if (my $fila = $sth->fetchrow_arrayref) {
+    $usuarioBanco = $fila->[1];
+} else {
+    print "No se encontró";
+    exit;
+}
+$nombre = $nombre.$paterno.$materno;
 
 # Ya hemos calculado el monto, ahora debemos agregar el monto a la tabla a manera de
 #historial
 $sth = $dbh->prepare("INSERT INTO movimientos (tarjeta_id, cuenta_id, monto, tipo) VALUES (?, ?, ?, ?)");
 $sth->execute($id_tarjeta, $id_cuenta, $monto, 1);
+
 
 
 # Verificar si la actualización fue exitosa
@@ -97,6 +142,57 @@ if ($sth->rows > 0) {
     print "No se logró ejecutar la accion";
 }
 
+print<<BLOCK;
+        <h1>Informacion del deposito</h1>
+        <br><br>
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Descripcion</th>
+            </tr>
+            <tr>
+                <td>Cliente</td>
+                <td>$nombre</td>
+            </tr>
+
+            <tr>
+                <td>DNI</td>
+                <td>$dni</td>
+            </tr>
+
+            <tr>
+                <td>Num. Tarjeta</td>
+                <td>$num_tarjeta</td>
+            </tr>
+
+            <tr>
+                <td>Accion</td>
+                <td>Deposito</td>
+            </tr>
+
+            <tr>
+                <td>Cantidad</td>
+                <td>$cantidad</td>
+            </tr>
+
+            <tr>
+                <td>Nuevo saldo</td>
+                <td>$monto</td>
+            </tr>
+
+            <tr>
+                <td>Usuario</td>
+                <td>$usuarioBanco</td>
+            </tr>
+        </table>
+
+        <div class="dirigir">
+            <a href='../htdocs/depositos.html'>Regresar</a>
+        </div>
+        
+</body>
+</html>
+BLOCK
 # Cerrar la conexión
 $sth->finish;
 $dbh->disconnect;
