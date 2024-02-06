@@ -12,11 +12,27 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('new-password').addEventListener('input', function () {
         validarCoincidenciaContrasenas();
     });
-
+    
     document.getElementById('new-confirmed-password').addEventListener('input', function () {
         validarCoincidenciaContrasenas();
     });
+
+    document.getElementById('botonMostrarActual').addEventListener('click', function() {
+        mostrarOcultarContrasena('actual-password');
+    });
+    document.getElementById('botonMostrarNuevo').addEventListener('click', function() {
+        mostrarOcultarContrasena('new-password');
+    });
+    document.getElementById('botonMostrarConfirmacion').addEventListener('click', function() {
+        mostrarOcultarContrasena('new-confirmed-password');
+    });
 });
+
+function mostrarOcultarContrasena(idCampo) {
+    var campo = document.getElementById(idCampo);
+    var tipo = campo.type;
+    campo.type = tipo === 'password' ? 'text' : 'password';
+}
 
 function opciones() {
     var xhr = new XMLHttpRequest();
