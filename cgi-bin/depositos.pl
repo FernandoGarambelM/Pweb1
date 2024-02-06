@@ -8,7 +8,7 @@ use DBI;
 
 
 #Este CGI se encargará solamente de hacer depositos que los hace los mismos
-#trabajadores del banco
+#trabajadores o usuarios del banco
 
 my $database = 'proyecto_pweb1';
 my $host     = 'localhost';
