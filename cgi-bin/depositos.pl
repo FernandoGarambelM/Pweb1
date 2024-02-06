@@ -193,7 +193,8 @@ print<<BLOCK;
 </body>
 </html>
 BLOCK
-# Cerrar la conexión
+
+# Cerrar la conexión.
 $sth->finish;
 $dbh->disconnect;
 

@@ -5,6 +5,8 @@ body {
     background-position: center;
     background-repeat: no-repeat;
   }
+  
+  
 
   h1 {
     text-align: center;
@@ -44,5 +46,4 @@ td:hover {
     padding: 10px;
     margin: 0 auto; 
     justify-content: center;
-    
 }
