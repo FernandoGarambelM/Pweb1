@@ -26,8 +26,7 @@ my $dni         = $cgi->param('dni');
 my $nacimiento  = $cgi->param('nacimiento');
 my $creado      = DateTime->now->ymd;
 my $estado      = 1;
-my $usuario     = $cgi->param('usuario');
-my $usuario_id  = 2;
+my $usuario_id     = $cgi->param('usuario');
 
 my $insert_query = "INSERT INTO clientes (nombres, paterno, materno, dni, nacimiento, creado, estado, usuario_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 my $insert_sth   = $dbh->prepare($insert_query);
@@ -40,4 +39,4 @@ if ($DBI::errstr) {
 
 $dbh->disconnect();
 
-print $cgi->redirect('../tarjetas.html');
+print $cgi->redirect("../tarjetas.html?dni=$dni&usuario_id=$usuario_id");

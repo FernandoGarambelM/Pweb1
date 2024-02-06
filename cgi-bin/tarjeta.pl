@@ -20,7 +20,11 @@ my $creationDate = $cgi->param('creationDate');
 my $dueDate      = $cgi->param('dueDate');
 my $password     = $cgi->param('password');
 
-my $q = CGI->new;
+my $id_user = $cgi->param('user_id');
+my $dni_cliente = $cgi->param('dni');
+
+
+my $q = CGI->new;   
 print $q->header('text/html');
 print<<BLOCK;
 <!DOCTYPE html>
@@ -58,6 +62,7 @@ print<<BLOCK;
             <p1>Fecha de creacion: $creationDate </p1><br>
             <p1>fecha de vencimiento: $dueDate</p1><br>
         </div>
-        <a href="../htdocs/tarjetas.html">Regreasar: </a>
+        <a href="../cuenta.html?dni=$dni_cliente&usuario_id=$id_user&num_tarjeta=$num_tarjeta">Regresar</a>
        
 BLOCK
+#se pasa a cuenta con el parametro del dni para determinar al cliente y el usuario id para determinar al usuario!
