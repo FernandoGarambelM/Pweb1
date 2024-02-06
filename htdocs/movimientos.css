@@ -6,16 +6,14 @@ body {
     background-repeat: no-repeat;
   }
   
-  
-
-  h1 {
+h1 {
     text-align: center;
-  }
-  a {
-    text-decoration: none;
-  }
+}
 
-  
+a {
+    text-decoration: none;
+}
+
 table {
     width: 80%;
     margin: 0 auto; 
@@ -34,6 +32,7 @@ th, td {
 
 th {
     background-color: wheat; 
+    text-align: center;
 }
 
 td:hover {
@@ -41,9 +40,29 @@ td:hover {
 }
 
 .dirigir{
-    background-color: wheat;
-    display: inline-block;
+    background-color: rgb(65, 6, 6);
+    display: flex;
     padding: 10px;
-    margin: 0 auto; 
+    width: 7%;
     justify-content: center;
+    margin: 0 auto; 
+    border-radius: 2rem;
+    
+}
+
+.regresar {
+    color: wheat;
+} 
+
+.dirigir:hover {
+    background-color: rgb(11, 11, 103);
+    color: wheat
+}
+
+.error {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
 }
