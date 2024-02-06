@@ -195,7 +195,7 @@ print<<BLOCK;
         </table>
 
         <div class="dirigir">
-            <a class='regresar' href='../htdocs/depositos.html'>Regresar</a>
+            <a class='regresar' href='../depositos.html'>Regresar</a>
         </div>
         
 </body>

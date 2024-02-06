@@ -76,22 +76,12 @@ if (my $fila = $sth->fetchrow_arrayref) {
     exit;
 }
 
-#Ahora con el id, podremos ingresar a los movimientos para esa tarjeta
-$sth = $dbh->prepare("SELECT * FROM movimientos WHERE tarjeta_id = ? ORDER BY tarjeta_id DESC LIMIT 1");
+my $sth = $dbh->prepare("SELECT SUM(monto*tipo) FROM movimientos WHERE tarjeta_id=?");
 $sth->execute($id_tarjeta);
-
-#Extraemos el monto
-my $monto_antiguo;
-
-if (my $fila = $sth->fetchrow_arrayref) {
-    $monto_antiguo = $fila->[3];
-} else {
-    print "No se encontró";
-    exit;
-}
-
+my ($monto_antiguo) = $sth->fetchrow_array;
 
 my $nuevo_monto;
+
 
 #Como estamos en retiros, debemos hacer la validacion del saldo
 if ($monto_antiguo >= $cantidad) {
@@ -237,7 +227,7 @@ print<<BLOCK;
         </table>
 
         <div class="dirigir">
-            <a class='regresar' href='../htdocs/retiros.html'>Regresar</a>
+            <a class='regresar' href='../retiros.html'>Regresar</a>
         </div>
         
 </body>
