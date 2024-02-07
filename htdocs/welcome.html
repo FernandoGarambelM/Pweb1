@@ -8,43 +8,46 @@
     <script src="scriptWelcome.js"></script> 
 </head>
 <body>
-    <ul>
-        <li><span id="inicial">D</span></li>
-        <li>Nombre de la cuenta: <span id="name" class="name">Ingeniero Julian</span></li>
-        <li>Numero de la tarjeta: <span id="number" class="number"></span> </li>
-        <li><a id="enlace-retiros">Movimientos</a></li>
-        <li><a href="estados.html">Estado de la cuenta</a></li>
-    </ul>
+    <div class="container">
+        <ul>
+            <li><span id="inicial">D</span></li>
+            <li>Nombre de la cuenta: <span id="name" class="name">Ingeniero Julian</span></li>
+            <li>Numero de la tarjeta: <span id="number" class="number"></span> </li>
+            <li><a id="enlace-retiros">Movimientos</a></li>
+            <li><a href="estados.html">Estado de la cuenta</a></li>
+            <li><a href="main.html">Salir</a></li>
 
-    <div style="margin-left:25%;padding:1px 16px;height:1000px;">
-        <h2>Bienvenido, estimado cliente</h2>
+        </ul>
 
-        <div class="card-container">
-            <div class="credit-card">
-                <div class="chip"></div>
-                <div class="card-number"><span id="number" class="number"></span></div>
-                <div class="card-info">
-                    <div class="card-holder"><span id="name" class="name">Ingeniero Julian</span></div>
-                    <div class="expiry-date"><span id="date" class="date">05/01/2024</span></div>
-                </div>
-                <div class="logo">
-                    <img src="LogoIcon.png" alt="Visa Logo">
-                    <p>UNSABANK</p>
+        <div style="margin-left:25%;padding:1px 16px;height:1000px;">
+            <h2>Bienvenido, estimado cliente</h2>
+
+            <div class="card-container">
+                <div class="credit-card">
+                    <div class="chip"></div>
+                    <div class="card-number"><span id="number" class="number"></span></div>
+                    <div class="card-info">
+                        <div class="card-holder"><span id="name" class="name">Ingeniero Julian</span></div>
+                        <div class="expiry-date"><span id="date" class="date">05/01/2024</span></div>
+                    </div>
+                    <div class="logo">
+                        <img src="LogoIcon.png" alt="Visa Logo">
+                        <p>UNSABANK</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="opciones">
-            <p>¿Qué desea realizar?</p>
-            <div class="botones">
-                <!-- Agregamos un identificador al enlace para poder seleccionarlo fácilmente -->
-                <a id="enlace-retiros2" class="boton-movimientos">Movimientos</a>
+            <div class="opciones">
+                <p>¿Qué desea realizar?</p>
+                <div class="botones">
+                    <!-- Agregamos un identificador al enlace para poder seleccionarlo fácilmente -->
+                    <a id="enlace-retiros2" class="boton-movimientos">Movimientos</a>
 
-                <a href="estados.html" class="boton-estado-cuenta">Ver el estado de la cuenta</a>
+                    <a href="estados.html" class="boton-estado-cuenta">Ver el estado de la cuenta</a>
+                </div>
             </div>
         </div>
     </div>
-
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var botonRetiros = document.getElementById("enlace-retiros");
