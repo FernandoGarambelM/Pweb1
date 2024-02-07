@@ -17,6 +17,7 @@ my $tipoMoneda    = $cgi->param('tipo_moneda');
 my $titular       = $cgi->param('dni_titular');
 my $usuario       = $cgi->param('usuario_id');
 my $tarjetaDNI = $cgi->param('num_tarjeta');
+
 # Conexión a la base de datos
 my $dbh = DBI->connect("DBI:mysql:database=$db_name;host=$db_host", $db_user, $db_password, { RaiseError => 1 });
 
@@ -87,7 +88,7 @@ sub mostrar_mensaje {
     <script>
         window.onload = function() {
             alert('$mensaje');
-            window.history.back();
+            window.location.href = '../admin.html';
         };
     </script>
 </head>

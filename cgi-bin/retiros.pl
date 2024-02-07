@@ -212,7 +212,7 @@ if (my $fila = $sth->fetchrow_arrayref) {
 # Ya hemos calculado el monto, ahora debemos agregar el monto a la tabla a manera de
 #historial
 $sth = $dbh->prepare("INSERT INTO movimientos (tarjeta_id, cuenta_id, monto, tipo) VALUES (?, ?, ?, ?)");
-$sth->execute($id_tarjeta, $id_cuenta, $nuevo_monto, 1);
+$sth->execute($id_tarjeta, $id_cuenta, $nuevo_monto, -1);
 
 
 
@@ -298,7 +298,7 @@ print<<BLOCK;
         </table>
 
         <div class="dirigir">
-            <a class='regresar' href='../retiros.html'>Regresar</a>
+            <a class='regresar' href='../welcome.html'>Regresar</a>
         </div>
         
 </body>

@@ -7,7 +7,7 @@ use DateTime;
 use CGI::Carp qw(croak fatalsToBrowser);
 my $cgi = CGI->new;
 
-my $servername = "127.0.0.1";
+my $servername = "localhost";
 my $username   = "root";
 my $password   = "";
 my $database   = "proyecto_pweb1";

@@ -31,8 +31,42 @@ print<<BLOCK;
 <html>
  <head>
  <meta charset="utf-8">
- <link rel="stylesheet" type="text/css" href="../htdocs/stateStyles.css">
- <title>Búsquedas bibliográficas de Programación Web 1 </title>
+ <title>Registro tarjeta </title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        text-align: center;
+        padding-top: 50px;
+    }
+    h1 {
+        color: #333;
+    }
+    .container {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 400px;
+        margin: 0 auto;
+    }
+    p {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    a {
+        display: inline-block;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+    a:hover {
+        background-color: #0056b3;
+    }
+ </style>
  </head>
 <body>
 BLOCK
@@ -62,7 +96,7 @@ print<<BLOCK;
             <p1>Fecha de creacion: $creationDate </p1><br>
             <p1>fecha de vencimiento: $dueDate</p1><br>
         </div>
-        <a href="../cuenta.html?dni=$dni_cliente&usuario_id=$id_user&num_tarjeta=$num_tarjeta">Regresar</a>
+        <a href="../cuenta.html?dni=$dni_cliente&usuario_id=$id_user&num_tarjeta=$num_tarjeta">Validar</a>
        
 BLOCK
 #se pasa a cuenta con el parametro del dni para determinar al cliente y el usuario id para determinar al usuario!
