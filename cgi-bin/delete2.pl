@@ -43,7 +43,7 @@ $sth2->execute($cuenta_id);
 
 my $delete_query3 = "DELETE FROM tarjetas WHERE id = ?";
 my $sth3 = $dbh->prepare($delete_query3);
-$sth2->execute($id_tarjeta);
+$sth3->execute($id_tarjeta);
 print $cgi->header(-type => 'application/json', -charset => 'utf-8');
 
 print encode_json({ success => "Cuenta y tarjeta eliminados correctamente" });
